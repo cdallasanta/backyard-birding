@@ -1,18 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import NewGame from './components/NewGame';
 import Navbar from './components/Navbar';
 
 
-function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <Router>
-        <Route exact path='/' component={NewGame.js} />
-      </Router>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+    return (
+      <div className="App">
+        <Navbar />
+        <Router>
+          <Route exact path='/' component={NewGame} />
+        </Router>
+        {this.props.game.selectedSeason}
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state =>{
+  return {game: state.game}
+}
+
+export default connect(mapStateToProps)(App);
