@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import birdCards from './images/birdCards.js';
+import wigeon from './images/birdCards/americanWigeon.png';
 import './App.css';
 
 function App() {
@@ -8,7 +10,11 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {
+            birdCards.map(bird => {
+              return <img src={bird.src} alt={bird.name} key={bird.id} />
+            })
+          }
         </p>
         <a
           className="App-link"
