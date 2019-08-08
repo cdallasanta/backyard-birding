@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 import NewGame from './components/NewGame';
 import Game from './containers/Game';
 import Navbar from './components/Navbar';
@@ -20,8 +19,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state =>{
-  return {game: state.game}
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
