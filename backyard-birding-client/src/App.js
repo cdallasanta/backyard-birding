@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import NewGame from './components/NewGame';
+import Game from './containers/Game';
 import Navbar from './components/Navbar';
 
 
@@ -12,8 +13,8 @@ class App extends React.Component {
         <Navbar />
         <Router>
           <Route exact path='/' component={NewGame} />
+          <Route path='/game' component={Game} />
         </Router>
-        {this.props.game.selectedSeason}
       </div>
     );
   }
