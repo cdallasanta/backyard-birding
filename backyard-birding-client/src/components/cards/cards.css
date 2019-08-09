@@ -1,0 +1,9 @@
+.card {
+  width: 95px;
+  border: 2px solid black;
+  border-radius: 12px;
+}
+
+.seasonCard {
+  width: 200px;
+}

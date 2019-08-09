@@ -1,5 +1,6 @@
 import {seasons} from '../images/allImages';
 
+
 export const seasonCards = [
   { id: 1, name:"spring", src: seasons["spring.png"], points: {
     spring: 4,
@@ -15,7 +16,7 @@ export const seasonCards = [
     winter: 2,
     any: 2
   }},
-  { id: 3, name:"fall", src: seasons["fall.png"], points: {
+  { id: 3, name:"autumn", src: seasons["autumn.png"], points: {
     spring: 2,
     summer: 1,
     fall: 4,

@@ -24,10 +24,10 @@ class NewGame extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             Select season:
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "spring"} value="spring" onChange={this.handleChange} />spring</label>
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "summer"} value="summer" onChange={this.handleChange} />summer</label>
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "fall"} value="fall" onChange={this.handleChange} />fall</label>
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "winter"} value="winter" onChange={this.handleChange} />winter</label>
+            <label><input type="radio" name="selectSeason" checked={this.state.season === "spring"} value="spring" onChange={this.handleChange} />Spring</label>
+            <label><input type="radio" name="selectSeason" checked={this.state.season === "summer"} value="summer" onChange={this.handleChange} />Summer</label>
+            <label><input type="radio" name="selectSeason" checked={this.state.season === "autumn"} value="autumn" onChange={this.handleChange} />Autumn</label>
+            <label><input type="radio" name="selectSeason" checked={this.state.season === "winter"} value="winter" onChange={this.handleChange} />Winter</label>
           </div>
 
           <input type="submit" value="Start Game" />

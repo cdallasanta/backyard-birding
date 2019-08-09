@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NewGame from './components/NewGame';
 import Game from './containers/Game';
 import Navbar from './components/Navbar';
+import About from './components/About';
 
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
         <Router>
           <Route exact path='/' component={NewGame} />
           <Route path='/game' component={Game} />
+          <Route path='/about' component={About} />
         </Router>
       </div>
     );

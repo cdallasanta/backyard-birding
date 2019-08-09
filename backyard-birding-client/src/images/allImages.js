@@ -6,4 +6,4 @@ function importAll(r) {
 
 export const birds = importAll(require.context('./birdCards', false, /\.png$/));
 export const seasons = importAll(require.context('./seasonCards', false, /\.png$/));
-// const backyards = importAll(require.context('./birdCards', false, /\.png$/));
+export const backyards = importAll(require.context('./backyardCards', false, /\.png$/));
