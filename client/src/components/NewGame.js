@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 
 class NewGame extends React.Component {
   state = {
-    season: "spring"
+    season: "spring",
+    playerName: ""
   }
 
   handleChange = e =>{
     this.setState({
-      season: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -23,11 +24,14 @@ class NewGame extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
+            Player Name: <input type="text" name="playerName" value={this.state.playerName} onChange={this.handleChange} />
+          </div>
+          <div>
             Select season:
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "spring"} value="spring" onChange={this.handleChange} />Spring</label>
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "summer"} value="summer" onChange={this.handleChange} />Summer</label>
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "autumn"} value="autumn" onChange={this.handleChange} />Autumn</label>
-            <label><input type="radio" name="selectSeason" checked={this.state.season === "winter"} value="winter" onChange={this.handleChange} />Winter</label>
+            <label><input type="radio" name="season" checked={this.state.season === "spring"} value="spring" onChange={this.handleChange} />Spring</label>
+            <label><input type="radio" name="season" checked={this.state.season === "summer"} value="summer" onChange={this.handleChange} />Summer</label>
+            <label><input type="radio" name="season" checked={this.state.season === "autumn"} value="autumn" onChange={this.handleChange} />Autumn</label>
+            <label><input type="radio" name="season" checked={this.state.season === "winter"} value="winter" onChange={this.handleChange} />Winter</label>
           </div>
 
           <input type="submit" value="Start Game" />

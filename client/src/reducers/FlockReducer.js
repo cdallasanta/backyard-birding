@@ -1,7 +1,8 @@
-function FlockReducer(state = {}, action){
+function FlockReducer(state = [], action){
   switch(action.type){
-    // case "START_GAME":
-    //   return Object.assign({}, state, action.payload)
+    case "DRAW_BIRD":
+      debugger;
+      return Object.assign({}, state, action.payload)
     default:
       return state;
   }

@@ -19,6 +19,7 @@ class Game extends React.Component {
 
 
 const mapStateToProps = state =>{
+  console.log(state)
   return {game: state.game}
 }
 
