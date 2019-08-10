@@ -1,9 +1,28 @@
 .card {
-  width: 95px;
   border: 2px solid black;
   border-radius: 12px;
+  margin: 3px;
+}
+
+#hand .card {
+  height: 70%;
+}
+
+#flock .card {
+  height: 95%;
+}
+
+#decks .card{
+ height: 70%
 }
 
 .seasonCard {
-  width: 200px;
+  height: 95%;
+  border: 2px solid black;
+  border-radius: 12px;
+  margin: 3px;
+}
+
+.card:hover {
+  box-shadow: 0 0px 8px 1px purple;
 }

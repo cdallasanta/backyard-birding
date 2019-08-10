@@ -1,17 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import BackyardCard from '../components/cards/backyardCard';
-import { backyardCards } from '../cards/allBackyardCards'
+import {drawBYcard} from '../actions/HandActions';
 
 class Hand extends React.Component {
+  renderBYcards(){
+    return this.props.hand.map((card, i) => {
+      return <BackyardCard card={card} key ={i} />
+    })
+  }
+
+  handleClick = e => {
+    this.props.drawBYcard();
+  }
+
   render(){
     return (
-      <div className="decks">
-        <BackyardCard card={backyardCards[1]} />
-        <BackyardCard card={backyardCards[2]} />
-        <BackyardCard card={backyardCards[3]} />
+      <div className="hand" id="hand">
+        {this.renderBYcards()}
+        <input type="button" onClick={this.handleClick} value="Draw Card" />
       </div>
     );
   }
 }
 
-export default Hand;
+const mapStateToProps = state => {
+  return {hand: state.player.hand}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {drawBYcard: () => dispatch(drawBYcard())}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hand);

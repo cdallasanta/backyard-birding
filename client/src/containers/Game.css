@@ -1,3 +1,34 @@
+:root {
+  --season-color: tan;
+}
+
 body {
-  background: lightblue;
+  background: var(--season-color);
+}
+
+#flock {
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+}
+
+#hand {
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+}
+
+#decks {
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
 }

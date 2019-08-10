@@ -1,6 +1,13 @@
 import React from "react";
 import { connect } from 'react-redux';
 
+const colors = {
+  spring: "palegreen",
+  summer: "khaki",
+  autumn: "peru",
+  winter: "lightblue"
+}
+
 class NewGame extends React.Component {
   state = {
     season: "spring",
@@ -17,6 +24,7 @@ class NewGame extends React.Component {
     e.preventDefault();
     this.props.startGame(this.state);
     this.props.history.push('/game');
+    document.body.style.setProperty("--season-color", colors[this.state.season]);
   }
 
   render(){

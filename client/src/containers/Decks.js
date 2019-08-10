@@ -11,7 +11,7 @@ import {cardBacks} from '../cards/allCardBacks';
 class Decks extends React.Component {
   render(){
     return (
-      <div className="decks">
+      <div className="decks" id="decks">
         <BackyardCard card={cardBacks.backyard} />
         <SeasonCard card={seasonCards.find(c => c.name === this.props.game.season)}/>
         <BirdCard card={cardBacks.bird} />

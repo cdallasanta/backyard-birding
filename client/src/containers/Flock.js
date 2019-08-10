@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { birdCards } from '../cards/allBirdCards';
 import BirdCard from '../components/cards/birdCard';
 import {drawBird} from '../actions/FlockActions';
 
 class Flock extends React.Component {
   renderBirdCards(){
-    return this.props.flock.map((birdId, i) => {
-      return <BirdCard card={birdCards[birdId]} key ={i} />
+    return this.props.flock.map((bird, i) => {
+      return <BirdCard card={bird} key ={i} />
     })
   }
 
@@ -17,7 +16,7 @@ class Flock extends React.Component {
 
   render(){
     return (
-      <div className="flock">
+      <div className="flock" id="flock">
         {this.renderBirdCards()}
         <input type="button" onClick={this.handleClick} value="Draw Bird" />
       </div>

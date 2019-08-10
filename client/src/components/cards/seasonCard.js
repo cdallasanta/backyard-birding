@@ -3,7 +3,7 @@ import './cards.css'
 
 const SeasonCard = props => {
   return(
-    <img src={props.card.src} alt={props.card.name} className="card seasonCard" />
+    <img src={props.card.src} alt={props.card.name} className="seasonCard" id="seasonCard" />
   );
 }
 

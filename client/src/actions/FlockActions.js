@@ -3,7 +3,7 @@ export function drawBird() {
     const wholeState = getState();
     dispatch({
       type: "DRAW_BIRD",
-      wholeState
+      newBird: wholeState.decks.bird[0]
     });
   };
 }

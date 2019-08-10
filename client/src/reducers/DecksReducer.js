@@ -1,19 +1,17 @@
-// deck of nums from 0-44, which will be used to find the IDs of cards still left in the deck
-const initBirdDeck = [...Array(45).keys()];
-
-// deck of 0,0,0,0,0,1,1,1,1,1,1,2,2,2,... which are the cards left in the deck, and the nums will point to the IDs of the backyard cards left
-const initBackyardDeck = new Array(50);
-for(let i = 0; i < 10; i++){
-  initBackyardDeck.fill(i, i*5, (i+1)*5)
-}
+import {birdCards} from '../cards/allBirdCards'
+import {initBackyardDeck} from '../cards/allBackyardCards'
 
 function DecksReducer(state = {
-  bird: shuffle(initBirdDeck),
-  backyard: shuffle(initBackyardDeck)
+	bird: shuffle([...birdCards]),
+  backyard: shuffle([...initBackyardDeck])
 }, action){
   switch(action.type){
     case "DRAW_BIRD":
+			// remove the 0 indexed card, it is added to the flock in FlockReducer
       return Object.assign({}, state, {bird: state.bird.slice(1)})
+		case "DRAW_BACKYARD_CARD":
+				// remove the 0 indexed card, it is added to the hand in PlayerReducer
+				return Object.assign({}, state, {backyard: state.backyard.slice(1)})
     default:
       return state;
   }
