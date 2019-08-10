@@ -1,8 +1,8 @@
 function FlockReducer(state = [], action){
   switch(action.type){
     case "DRAW_BIRD":
-      debugger;
-      return Object.assign({}, state, action.payload)
+      const newBird = action.wholeState.decks.bird[0]
+      return [...state, newBird]
     default:
       return state;
   }

@@ -5,7 +5,6 @@ function GameReducer(state = {
 }, action){
   switch(action.type){
     case "START_GAME":
-      console.log(Object.assign({}, state, action.payload))
       return Object.assign({}, state, action.payload)
     default:
       return state;

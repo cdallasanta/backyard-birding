@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { birdCards } from '../cards/allBirdCards';
 import BirdCard from '../components/cards/birdCard';
+import {drawBird} from '../actions/FlockActions';
 
 class Flock extends React.Component {
   renderBirdCards(){
@@ -29,7 +30,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {drawBird: () => dispatch({type:"DRAW_BIRD"})}
+  return {drawBird: () => dispatch(drawBird())}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Flock);

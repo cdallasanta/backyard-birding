@@ -1,5 +1,6 @@
 // deck of nums from 0-44, which will be used to find the IDs of cards still left in the deck
 const initBirdDeck = [...Array(45).keys()];
+
 // deck of 0,0,0,0,0,1,1,1,1,1,1,2,2,2,... which are the cards left in the deck, and the nums will point to the IDs of the backyard cards left
 const initBackyardDeck = new Array(50);
 for(let i = 0; i < 10; i++){
@@ -11,8 +12,8 @@ function DecksReducer(state = {
   backyard: shuffle(initBackyardDeck)
 }, action){
   switch(action.type){
-    // case "START_GAME":
-    //   return Object.assign({}, state, action.payload)
+    case "DRAW_BIRD":
+      return Object.assign({}, state, {bird: state.bird.slice(1)})
     default:
       return state;
   }
