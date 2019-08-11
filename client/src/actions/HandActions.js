@@ -1,9 +1,11 @@
-export function drawBYcard() {
+export function drawBYcard(numToDraw = 1) {
   return (dispatch, getState) => {
-    const wholeState = getState();
-    dispatch({
-      type: "DRAW_BACKYARD_CARD",
-      newBYcard: wholeState.decks.backyard[0]
-    });
+    for(let i=0; i<numToDraw; i++){
+      const wholeState = getState();
+      dispatch({
+        type: "DRAW_BACKYARD_CARD",
+        newBYcard: wholeState.decks.backyard[0]
+      });
+    }
   };
 }

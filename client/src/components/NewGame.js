@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import { drawBYcard } from '../actions/HandActions';
 
 const colors = {
   spring: "palegreen",
@@ -25,6 +26,7 @@ class NewGame extends React.Component {
     this.props.startGame(this.state);
     this.props.history.push('/game');
     document.body.style.setProperty("--season-color", colors[this.state.season]);
+    this.props.drawBYcard(3);
   }
 
   render(){
@@ -51,7 +53,8 @@ class NewGame extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    startGame: payload => dispatch({type: "START_GAME", payload})
+    startGame: payload => dispatch({type: "START_GAME", payload}),
+    drawBYcard: num => dispatch(drawBYcard(num))
   }
 }
 

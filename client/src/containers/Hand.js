@@ -29,7 +29,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {drawBYcard: () => dispatch(drawBYcard())}
+  return {drawBYcard: num => dispatch(drawBYcard(num))}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hand);
