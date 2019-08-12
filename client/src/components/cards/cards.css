@@ -57,7 +57,7 @@
 /* animations */
 @keyframes flyIn {
   0% {
-    transform: translate(-300%, -200%);
+    transform: translate(300%, -200%);
     opacity: 0;
   }
   25% {
@@ -80,7 +80,7 @@
   75% {
     opacity: 0;
   }
-  100% {transform: translate(300%, -200%)}
+  100% {transform: translate(-300%, -200%)}
 }
 
 #flock .flyout {
