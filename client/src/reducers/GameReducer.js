@@ -1,13 +1,22 @@
+import {seasons} from '../images/allImages';
+
 const phases = ["drawBirds", "drawBYcards", "playBYcards", "chooseBird", "attractBird", "flightRoll"]
 
-
-// TODO, don't want spring as default, this is only here for ease of development
-function GameReducer(state = {
-  season: "spring",
+const initState = {
+  season: { id: 1, name:"spring", src: seasons["spring.png"], points: {
+    spring: 4,
+    summer: 3,
+    fall: 2,
+    winter: 1,
+    any: 2
+  }},
   phase: phases[0],
   selectedBird: null,
   diceVisible: false
-}, action){
+}
+
+// TODO, don't want spring as default, this is only here for ease of development
+function GameReducer(state = initState, action){
   switch(action.type){
     case "START_GAME":
       return Object.assign({}, state, action.payload);

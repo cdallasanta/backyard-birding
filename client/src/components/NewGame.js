@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { drawBYcard } from '../actions/HandActions';
+import { seasonCards } from '../cards/allSeasonCards'
 
 const colors = {
   spring: "palegreen",
@@ -23,7 +24,8 @@ class NewGame extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.startGame(this.state);
+    const payload = Object.assign({}, this.state, {season: seasonCards.find(c => c.name === this.state.season)})
+    this.props.startGame(payload);
     this.props.history.push('/game');
     document.body.style.setProperty("--season-color", colors[this.state.season]);
     this.props.drawBYcard(3);

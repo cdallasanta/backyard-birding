@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDice from 'react-dice-complete';
 import { connect } from 'react-redux';
 import 'react-dice-complete/dist/react-dice-complete.css';
-import { nextPhase } from '../actions/GameActions';
+import { nextPhase, selectBirdAgain } from '../actions/GameActions';
 
 // this is based off of react-dice by Adam Taylor, found here:
 // https://github.com/AdamTyler/react-dice-complete/blob/master/src/Die.js
@@ -34,6 +34,7 @@ class Dice extends React.Component {
 
     if(result === 6) {
       // capture bird and move back to select bird
+      this.props.selectBirdAgain();
     } else if(result > 4-bonus){
       // capture bird and progress
       this.props.nextPhase();
@@ -89,7 +90,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    nextPhase: () => dispatch(nextPhase())
+    nextPhase: () => dispatch(nextPhase()),
+    selectBirdAgain: () => dispatch(selectBirdAgain())
   }
 }
 
