@@ -33,6 +33,10 @@
   box-shadow: 0 0px 8px 1px purple;
 }
 
+.card.selected {
+  box-shadow: 0 0px 8px 1px blue;
+}
+
 
 /* spread the hand of cards */
 #hand > .card:nth-child(1) {

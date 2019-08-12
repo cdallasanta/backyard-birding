@@ -33,6 +33,11 @@ body {
   height: 100px;
 }
 
+#hand {
+  position: absolute;
+  left: 0px;
+}
+
 /* hand animation */
 @keyframes slideUp {
   from {transform: translateY(300%);}

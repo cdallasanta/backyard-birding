@@ -11,14 +11,24 @@ class Hand extends React.Component {
   }
 
   handleClick = (e, card) => {
-    // TODO select and unselect
-    this.setState({
-      selectedCards: [...this.state.selectedCards, card]
-    }, () => {
-      if (this.state.selectedCards.length === 2){
-        this.moveTheCards();
-      }
-    })
+    // unselect card if it is already selected
+    if(this.state.selectedCards.includes(card)) {
+      e.target.classList.remove('selected');
+      this.setState({
+        selectedCards: [...this.state.selectedCards.filter(c => c !== card)]
+      })
+    } else {
+      // otherwise add it to selected cards
+      e.target.classList.add('selected');
+      this.setState({
+        selectedCards: [...this.state.selectedCards, card]
+      }, () => {
+        // and if there are two selected cards, play them
+        if (this.state.selectedCards.length === 2){
+          this.moveTheCards();
+        }
+      });
+    }
   }
 
   moveTheCards = () => {
@@ -31,10 +41,9 @@ class Hand extends React.Component {
   }
 
   handleAnimationEnd = e => {
-    debugger;
-    if (e.target.classList.includes("slideDown")){
+    if (e.target.classList.contains("slideDown")){
       e.target.classList.remove("slideDown");
-      // this.props.toggleHand();
+      this.props.toggleHand();
       this.props.nextPhase();
     }
   }
@@ -48,7 +57,7 @@ class Hand extends React.Component {
   render(){
     console.log(this.props.hand)
     return (
-      <div className="hand" id="hand">
+      <div className="hand" id="hand" onAnimationEnd={this.handleAnimationEnd} >
         {this.renderBYcards()}
       </div>
     );
