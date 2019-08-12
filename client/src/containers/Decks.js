@@ -8,6 +8,7 @@ import { drawBird } from '../actions/FlockActions';
 import { drawBYcard } from '../actions/HandActions';
 import { nextPhase } from '../actions/GameActions';
 import { toggleHand } from '../actions/PlayerActions';
+import Instructions from '../components/Instructions'
 
 class Decks extends React.Component {
   sleep = ms => {
@@ -31,6 +32,7 @@ class Decks extends React.Component {
   render(){
     return (
       <div className="top-level-container" id="decks">
+        <Instructions phase={this.props.game.phase}/>
         <CardBack card={cardBacks.bird} handleClick={this.handleClick} />
         <SeasonCard card={seasonCards.find(c => c.name === this.props.game.season)}/>
         <CardBack card={cardBacks.backyard} handleClick={this.handleClick}  />
