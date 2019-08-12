@@ -5,3 +5,7 @@ export function nextPhase() {
 export function selectCard(card) {
   return {type:"SELECT_CARD", card}
 }
+
+export function toggleDice() {
+  return {type: "TOGGLE_DICE"}
+}

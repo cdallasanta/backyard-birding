@@ -8,7 +8,8 @@ import { drawBird } from '../actions/FlockActions';
 import { drawBYcard } from '../actions/HandActions';
 import { nextPhase } from '../actions/GameActions';
 import { toggleHand } from '../actions/PlayerActions';
-import Instructions from '../components/Instructions'
+import Instructions from '../components/Instructions';
+import Dice from '../components/Dice';
 
 class Decks extends React.Component {
   sleep = ms => {
@@ -29,6 +30,10 @@ class Decks extends React.Component {
     }
   }
 
+  rollDone = () => {
+
+  }
+
   render(){
     return (
       <div className="top-level-container" id="decks">
@@ -36,6 +41,7 @@ class Decks extends React.Component {
         <CardBack card={cardBacks.bird} handleClick={this.handleClick} />
         <SeasonCard card={seasonCards.find(c => c.name === this.props.game.season)}/>
         <CardBack card={cardBacks.backyard} handleClick={this.handleClick}  />
+        {this.props.game.diceVisible ? <Dice rollDone={this.rollDone} /> : null}
       </div>
     );
   }
