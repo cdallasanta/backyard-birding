@@ -36,7 +36,18 @@ function PlayerReducer(state = initState, action){
         backyard: [...state.backyard, ...action.cards].sort((a,b) => a.id-b.id),
         hand: newHand
       })
-
+    
+    case "SCORE_BIRD":
+      const newBY = state.backyard
+      action.payload.BYcards.forEach(by => {
+        newBY.splice(newBY.indexOf(by),1);
+      })
+      return Object.assign(
+        {},
+        state,
+        {backyard: newBY}
+      );
+    
     default:
       return state;
   }

@@ -3,6 +3,7 @@ import ReactDice from 'react-dice-complete';
 import { connect } from 'react-redux';
 import 'react-dice-complete/dist/react-dice-complete.css';
 import { nextPhase, selectBirdAgain } from '../actions/GameActions';
+import { scoreBird } from '../actions/FlockActions';
 
 // this is based off of react-dice by Adam Taylor, found here:
 // https://github.com/AdamTyler/react-dice-complete/blob/master/src/Die.js
@@ -23,20 +24,15 @@ class Dice extends React.Component {
 
   checkForSuccess = result => {
     const BYcards = this.gatherBYcards();
-    let bonus;
-    if (BYcards.length === 1) {
-      bonus = 0;
-    } else if (BYcards[0].type === BYcards[1].type) {
-      bonus = 1;
-    } else {
-      bonus = 2;
-    }
+    let bonus = this.setBonus(BYcards);
 
     if(result === 6) {
-      // capture bird and move back to select bird
+      //add fly-to-score animation, and when done, do the following
+      this.props.scoreBird(this.props.selectedBird, BYcards)
       this.props.selectBirdAgain();
-    } else if(result > 4-bonus){
-      // capture bird and progress
+    } else if(result >= 4-bonus){
+      //add fly-to-score animation, and when done, do the following
+      this.props.scoreBird(this.props.selectedBird, BYcards)
       this.props.nextPhase();
     } else {
       this.props.nextPhase();
@@ -65,6 +61,16 @@ class Dice extends React.Component {
     return BYcards;
   }
 
+  setBonus = BYcards => {
+    if (BYcards.length === 1) {
+      return 0;
+    } else if (BYcards[0].type === BYcards[1].type) {
+      return 1;
+    } else {
+      return 2;
+    }
+  }
+
   render() {
     return(
       <div id="dice">
@@ -91,7 +97,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     nextPhase: () => dispatch(nextPhase()),
-    selectBirdAgain: () => dispatch(selectBirdAgain())
+    selectBirdAgain: () => dispatch(selectBirdAgain()),
+    scoreBird: (bird, BYcards) => dispatch(scoreBird(bird, BYcards))
   }
 }
 

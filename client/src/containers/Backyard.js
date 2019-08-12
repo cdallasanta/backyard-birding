@@ -19,7 +19,10 @@ class Backyard extends React.Component {
 }
   
 const mapStateToProps = state => {
-  return {backyard: state.player.backyard}
+  return {
+    player: state.player,
+    backyard: state.player.backyard
+  }
 }
 
 export default connect(mapStateToProps)(Backyard);

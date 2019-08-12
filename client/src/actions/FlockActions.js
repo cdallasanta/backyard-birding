@@ -8,6 +8,16 @@ export function drawBird() {
   };
 }
 
+export function scoreBird(bird, BYcards) {
+  return {
+    type: "SCORE_BIRD",
+    payload: {
+      bird,
+      BYcards
+    }
+  }
+}
+
 export function selectBird(bird) {
   return {
     type: "SELECT_BIRD",
