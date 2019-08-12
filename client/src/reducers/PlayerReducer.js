@@ -42,9 +42,11 @@ function PlayerReducer(state = initState, action){
       action.payload.BYcards.forEach(by => {
         newBY.splice(newBY.indexOf(by),1);
       })
+      debugger;
       return Object.assign(
         {},
         state,
+        {score: state.score + action.payload.score},
         {backyard: newBY}
       );
     
