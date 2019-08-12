@@ -6,13 +6,14 @@ class BirdCard extends React.Component {
     zoomed: false
   }
 
-  zoomCard = () => {
+  zoomCard = e => {
+    e.preventDefault();
     this.setState({zoomed: !this.state.zoomed})
   }
 
   render(){
     return(
-      <img src={this.props.card.src} alt={this.props.card.name} className={`card bird${this.state.zoomed ? " zoomed" : ""}`} onDoubleClick={this.zoomCard} />
+      <img src={this.props.card.src} alt={this.props.card.name} className={`card bird${this.state.zoomed ? " zoomed" : ""}`} onContextMenu={this.zoomCard} onClick={() => this.props.handleClick(this.props.card)} />
     );
   }
 }

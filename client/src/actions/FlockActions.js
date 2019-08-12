@@ -7,3 +7,10 @@ export function drawBird() {
     });
   };
 }
+
+export function selectBird(bird) {
+  return {
+    type: "SELECT_BIRD",
+    bird
+  }
+}

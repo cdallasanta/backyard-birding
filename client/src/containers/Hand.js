@@ -55,7 +55,6 @@ class Hand extends React.Component {
   }
 
   render(){
-    console.log(this.props.hand)
     return (
       <div className="hand" id="hand" onAnimationEnd={this.handleAnimationEnd} >
         {this.renderBYcards()}
