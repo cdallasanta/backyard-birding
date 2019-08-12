@@ -39,7 +39,7 @@ class Decks extends React.Component {
       <div className="top-level-container" id="decks">
         <Instructions phase={this.props.game.phase}/>
         <CardBack card={cardBacks.bird} handleClick={this.handleClick} />
-        <SeasonCard card={seasonCards.find(c => c === this.props.game.season)}/>
+        <SeasonCard card={seasonCards.find(c => c.id === this.props.game.season.id)}/>
         <CardBack card={cardBacks.backyard} handleClick={this.handleClick}  />
         {this.props.game.diceVisible ? <Dice rollDone={this.rollDone} /> : null}
       </div>

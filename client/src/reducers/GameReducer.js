@@ -30,6 +30,7 @@ function GameReducer(state = initState, action){
     case "SELECT_BIRD_AGAIN":
       return Object.assign({}, state, {phase: phases[3]});
     default:
+      console.log(state)
       return state;
   }
 }
