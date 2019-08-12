@@ -18,6 +18,12 @@
   height: 95%;
 }
 
+#flock .card.zoomed {
+  position: absolute;
+  height: 80%;
+  border-radius: 30px;
+}
+
 #decks .card{
  height: 70%
 }

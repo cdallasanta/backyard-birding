@@ -33,7 +33,7 @@ function PlayerReducer(state = initState, action){
       const newHand = state.hand.filter(c => c.id !== action.cards[0].id && c.id !== action.cards[1].id)
 
       return Object.assign({}, state, {
-        backyard: [...state.backyard, ...action.cards],
+        backyard: [...state.backyard, ...action.cards].sort((a,b) => a.id-b.id),
         hand: newHand
       })
 

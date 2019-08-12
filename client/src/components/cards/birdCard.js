@@ -1,10 +1,20 @@
 import React from 'react';
 import './cards.css'
 
-const BirdCard = props => {
-  return(
-    <img src={props.card.src} alt={props.card.name} className="card bird" />
-  );
+class BirdCard extends React.Component {
+  state = {
+    zoomed: false
+  }
+
+  zoomCard = () => {
+    this.setState({zoomed: !this.state.zoomed})
+  }
+
+  render(){
+    return(
+      <img src={this.props.card.src} alt={this.props.card.name} className={`card bird${this.state.zoomed ? " zoomed" : ""}`} onDoubleClick={this.zoomCard} />
+    );
+  }
 }
 
 export default BirdCard;
