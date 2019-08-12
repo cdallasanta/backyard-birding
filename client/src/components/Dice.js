@@ -24,7 +24,7 @@ class Dice extends React.Component {
   checkForSuccess = result => {
     const BYcards = this.gatherBYcards();
     let bonus;
-    if (BYcards.length == 1) {
+    if (BYcards.length === 1) {
       bonus = 0;
     } else if (BYcards[0].type === BYcards[1].type) {
       bonus = 1;
@@ -36,8 +36,9 @@ class Dice extends React.Component {
       // capture bird and move back to select bird
     } else if(result > 4-bonus){
       // capture bird and progress
+      this.props.nextPhase();
     } else {
-
+      this.props.nextPhase();
     }
   }
 
@@ -92,4 +93,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps)(Dice);
+export default connect(mapStateToProps, mapDispatchToProps)(Dice);
