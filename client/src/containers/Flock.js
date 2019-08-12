@@ -11,7 +11,7 @@ class Flock extends React.Component {
 
   render(){
     return (
-      <div className="flock" id="flock">
+      <div className="top-level-container" id="flock">
         {this.renderBirdCards()}
       </div>
     );

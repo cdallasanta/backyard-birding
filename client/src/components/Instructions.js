@@ -4,7 +4,7 @@ const phaseInstructions = ["Draw 2 Bird Cards", "Draw 2 Backyard Cards", "Play 2
 
 const Instructions = props => {
   return(
-    <div className="instructions">
+    <div className="instructions" id="instructions">
       {phaseInstructions[props.phase]}
     </div>
   )

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class PlayerArea extends React.Component {
   render(){
     return (
-      <div className="playerArea" id="playerArea">
+      <div className="top-level-container" id="playerArea">
         {this.props.handVisible ? <Hand /> : null }
         <button onClick={() => this.props.toggleHand()}>Toggle Hand</button>
         <Score />

@@ -7,9 +7,10 @@ const CardBack = props => {
   }
 
   async function handleClick() {
-    props.drawBird();
+    props.whenClicked();
     await sleep(150)
-    props.drawBird();
+    props.whenClicked();
+    props.nextPhase();
   }
 
   return(

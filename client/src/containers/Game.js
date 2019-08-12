@@ -10,7 +10,7 @@ class Game extends React.Component {
   render(){
     return(
       <div>
-        <Instructions phase={this.props.game.phase} />
+        <Instructions phase={this.props.game.phase}/>
         <Decks/>
         <Flock />
         <PlayerArea />

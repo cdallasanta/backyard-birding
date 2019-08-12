@@ -2,7 +2,8 @@ import {birdCards} from '../cards/allBirdCards'
 import {initBackyardDeck} from '../cards/allBackyardCards'
 
 function DecksReducer(state = {
-	bird: shuffle([...birdCards]),
+	//shuffle the bird deck, then take the first fourth of them
+	bird: shuffle([...birdCards]).slice(0,birdCards.length/4),
   backyard: shuffle([...initBackyardDeck])
 }, action){
   switch(action.type){
