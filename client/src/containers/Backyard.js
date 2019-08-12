@@ -11,7 +11,7 @@ class Backyard extends React.Component {
 
   render(){
     return (
-      <div className="hand" id="backyard">
+      <div className="backyard" id="backyard">
         {this.renderBYcards()}
       </div>
     );

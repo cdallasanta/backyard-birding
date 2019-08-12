@@ -16,14 +16,27 @@ class Hand extends React.Component {
       selectedCards: [...this.state.selectedCards, card]
     }, () => {
       if (this.state.selectedCards.length === 2){
-        this.props.playBYcards(this.state.selectedCards);
-        this.setState({
-          selectedCards: []
-        })
-        this.props.toggleHand();
-        this.props.nextPhase();
+        this.moveTheCards();
       }
     })
+  }
+
+  moveTheCards = () => {
+    this.props.playBYcards(this.state.selectedCards);
+    this.setState({
+      selectedCards: []
+    })
+    // add the slideDown class to make the hand slide down out of site, where it will hit the animationEnd function and be hidden
+    document.getElementById('hand').classList.add("slideDown");
+  }
+
+  handleAnimationEnd = e => {
+    debugger;
+    if (e.target.classList.includes("slideDown")){
+      e.target.classList.remove("slideDown");
+      // this.props.toggleHand();
+      this.props.nextPhase();
+    }
   }
 
   renderBYcards(){
@@ -33,6 +46,7 @@ class Hand extends React.Component {
   }
 
   render(){
+    console.log(this.props.hand)
     return (
       <div className="hand" id="hand">
         {this.renderBYcards()}

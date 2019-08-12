@@ -25,6 +25,13 @@ body {
   font-size: 2em;
 }
 
+#score {
+  position:absolute;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+}
+
 /* hand animation */
 @keyframes slideUp {
   from {transform: translateY(300%);}
