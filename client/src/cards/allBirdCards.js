@@ -39,11 +39,5 @@ export const birdCards = [
   { id: 35, src: birds["stellersJay.png"], name: "Steller's Jay", flightNums: [5,6], season: "any", habitat: ["nuts", "lawn"] },
   { id: 36, src: birds["variedThrush.png"], name: "Varied Thrush", flightNums: [3,4], season: "winter", habitat: ["seeds", "lawn"] },
   { id: 37, src: birds["whiteCrownedSparrow.png"], name: "White-Crowned Sparrow", flightNums: [5,6], season: "spring", habitat: ["seeds", "flowersAndBushes"] },
-  { id: 38, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] },
-  { id: 39, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] },
-  { id: 40, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] },
-  { id: 41, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] },
-  { id: 42, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] },
-  { id: 43, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] },
-  { id: 44, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] },
+  { id: 38, src: birds["woodDuck.png"], name: "Wood Duck", flightNums: [1,2], season: "spring", habitat: ["wetland", "wildGrass"] }
 ];
