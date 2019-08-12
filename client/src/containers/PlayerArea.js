@@ -2,6 +2,7 @@ import React from 'react';
 import Hand from './Hand';
 import Score from '../components/Score';
 import { connect } from 'react-redux';
+import { toggleHand } from '../actions/PlayerActions'
 
 class PlayerArea extends React.Component {
   render(){
@@ -9,7 +10,7 @@ class PlayerArea extends React.Component {
       <div className="top-level-container" id="playerArea">
         {this.props.handVisible ? <Hand /> : null }
         <button onClick={() => this.props.toggleHand()}>Toggle Hand</button>
-        <Score />
+        <Score score={this.props.score} />
       </div>
     );
   }
@@ -17,13 +18,14 @@ class PlayerArea extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    handVisible: state.player.handVisible
+    handVisible: state.player.handVisible,
+    score: state.player.score
   }
 }
 
 const mapDisptachToProps = dispatch => {
   return {
-    toggleHand: () => dispatch({type:'TOGGLE_HAND'})
+    toggleHand: () => dispatch(toggleHand())
   }
 }
 

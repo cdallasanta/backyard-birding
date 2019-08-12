@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BackyardCard from '../components/cards/backyardCard';
-import {playBYcards} from '../actions/PlayerActions'
+import { playBYcards } from '../actions/PlayerActions'
+import { toggleHand } from '../actions/PlayerActions'
 
 class Hand extends React.Component {
   state = {
@@ -9,16 +10,18 @@ class Hand extends React.Component {
   }
 
   handleClick = (e, card) => {
-    if (this.state.selectedCards.length < 2){
-      this.setState({
-        selectedCards: [...this.state.selectedCards, card]
-      })
-    } else {
-      playBYcards(this.state.selectedCards);
-      this.setState({
-        selectedCards: []
-      })
-    }
+    // TODO select and unselect
+    this.setState({
+      selectedCards: [...this.state.selectedCards, card]
+    }, () => {
+      if (this.state.selectedCards.length === 2){
+        this.props.playBYcards(this.state.selectedCards);
+        this.setState({
+          selectedCards: []
+        })
+        this.props.toggleHand();
+      }
+    })
   }
 
   renderBYcards(){
@@ -42,7 +45,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    playBYcards: selectedCards => dispatch(playBYcards(selectedCards))
+    playBYcards: cards => dispatch(playBYcards(cards)),
+    toggleHand: () => dispatch(toggleHand())
   }
 }
 
