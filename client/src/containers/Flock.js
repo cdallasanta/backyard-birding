@@ -7,15 +7,16 @@ import { nextPhase } from '../actions/GameActions';
 class Flock extends React.Component {
   renderBirdCards(){
     return this.props.flock.map((bird, i) => {
-      return <BirdCard card={bird} key ={i} handleClick={this.handleClick}/>
+      return <BirdCard card={bird} key ={i} handleClick={this.handleClick} selected={this.props.selectedBird === bird} />
     })
   }
 
-  handleClick = (bird) => {
-    if (this.props.phase === 3) {
-      console.log(bird)
-      // this.props.selectBird(bird);
-      // this.props.nextPhase();
+  handleClick = (e, bird) => {
+    if (this.props.phase === "chooseBird") {
+      this.props.selectBird(bird);
+      this.props.nextPhase();
+    } else if (this.props.phase === "attractBird") {
+      this.props.selectBird(bird);
     }
   }
 
@@ -31,7 +32,8 @@ class Flock extends React.Component {
 const mapStateToProps = state => {
   return {
     flock: state.flock,
-    phase: state.game.phase
+    phase: state.game.phase,
+    selectedBird: state.game.selectedBird
   }
 }
 

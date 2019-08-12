@@ -16,12 +16,12 @@ class Decks extends React.Component {
   }
 
   handleClick = async (e) => {
-    if (this.props.game.phase === 0 && e.target.getAttribute('name') === "birdDeck"){
+    if (this.props.game.phase === "drawBirds" && e.target.getAttribute('name') === "birdDeck"){
       this.props.drawBird();
       await this.sleep(150)
       this.props.drawBird();
       this.props.nextPhase();
-    } else if (this.props.game.phase === 1 && e.target.getAttribute('name') === "backyardDeck") {
+    } else if (this.props.game.phase === "drawBYcards" && e.target.getAttribute('name') === "backyardDeck") {
       this.props.toggleHand();
       this.props.drawBYcard();
       this.props.drawBYcard();

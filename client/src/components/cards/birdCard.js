@@ -13,7 +13,7 @@ class BirdCard extends React.Component {
 
   render(){
     return(
-      <img src={this.props.card.src} alt={this.props.card.name} className={`card bird${this.state.zoomed ? " zoomed" : ""}`} onContextMenu={this.zoomCard} onClick={() => this.props.handleClick(this.props.card)} />
+      <img src={this.props.card.src} alt={this.props.card.name} className={`card bird${this.state.zoomed ? " zoomed" : ""}${this.props.selected ? " selected" : ""}`} onContextMenu={this.zoomCard} onClick={e => this.props.handleClick(e, this.props.card)} />
     );
   }
 }
