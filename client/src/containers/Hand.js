@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import BackyardCard from '../components/cards/backyardCard';
-import {drawBYcard} from '../actions/HandActions';
+import { drawBYcard } from '../actions/HandActions';
 
 class Hand extends React.Component {
   renderBYcards(){

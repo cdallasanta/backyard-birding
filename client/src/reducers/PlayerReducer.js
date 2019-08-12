@@ -1,8 +1,11 @@
-function PlayerReducer(state = {
+const initState = {
   playerName: "",
   score: 0,
-  hand: []
-}, action){
+  hand: [],
+  handVisible: false
+}
+
+function PlayerReducer(state = initState, action){
   switch(action.type){
     case "START_GAME":
       return Object.assign(
@@ -19,6 +22,8 @@ function PlayerReducer(state = {
         state,
         {hand: newSortedHand}
       )
+    case "TOGGLE_HAND":
+      return Object.assign({}, state, {handVisible: !state.handVisible})
     default:
       return state;
   }

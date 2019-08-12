@@ -15,7 +15,7 @@ body {
   height: 30vh;
 }
 
-#hand {
+#playerArea {
   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   
   justify-content: center;
@@ -33,24 +33,3 @@ body {
   height: 30vh;
 }
 
-
-/* spread the hand of cards */
-#hand > .card:nth-child(1) {
- transform: translate(2.5em, 1.75em) rotate(-25deg);
-}
-
-#hand > .card:nth-child(2) {
- transform: translate(1em, .4em) rotate(-10deg);
-}
-
-#hand > .card:nth-child(3) {
- transform: translate(0em, 0em) rotate(0deg);
-}
-
-#hand > .card:nth-child(4) {
- transform: translate(-1em, .4em) rotate(10deg);
-}
-
-#hand > .card:nth-child(5) {
- transform: translate(-2.5em, 1.75em) rotate(25deg);
-}
