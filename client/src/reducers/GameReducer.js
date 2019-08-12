@@ -5,7 +5,8 @@
 // TODO, don't want spring as default, this is only here for ease of development
 function GameReducer(state = {
   season: "spring",
-  phase: 0
+  phase: 0,
+  selectedCard: null
 }, action){
   switch(action.type){
     case "START_GAME":
@@ -13,6 +14,8 @@ function GameReducer(state = {
     case "NEXT_PHASE":
       let newPhase = state.phase + 1 > 6 ? 0 : state.phase + 1;
       return Object.assign({}, state, {phase: newPhase})
+    case "SELECT_CARD":
+      return Object.assign({}, state, {selectedCard: action.card})
     default:
       return state;
   }
