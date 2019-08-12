@@ -24,3 +24,26 @@ body {
   vertical-align: middle;
   font-size: 2em;
 }
+
+/* hand animation */
+@keyframes slideUp {
+  from {transform: translateY(300%);}
+  to {transform: translateY(0);}
+}
+
+#hand {
+  animation-name: slideUp;
+  animation-duration: .3s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes slideDown {
+  from {transform: translateY(0%);}
+  to {transform: translateY(3000);}
+}
+
+#hand.slideDown {
+  animation-name: slideDown;
+  animation-duration: .3s;
+  animation-timing-function: ease-in;
+}

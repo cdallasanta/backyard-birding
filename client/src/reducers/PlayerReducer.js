@@ -29,7 +29,6 @@ function PlayerReducer(state = initState, action){
       return Object.assign({}, state, {handVisible: !state.handVisible})
 
     case "PLAY_BACKYARD_CARDS":
-      debugger;
       // hand with the selected cards filtered out
       const newHand = state.hand.filter(c => c.id !== action.cards[0].id && c.id !== action.cards[1].id)
 
@@ -37,7 +36,7 @@ function PlayerReducer(state = initState, action){
         backyard: [...state.backyard, ...action.cards],
         hand: newHand
       })
-      
+
     default:
       return state;
   }

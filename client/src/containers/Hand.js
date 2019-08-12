@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import BackyardCard from '../components/cards/backyardCard';
 import { playBYcards } from '../actions/PlayerActions'
 import { toggleHand } from '../actions/PlayerActions'
+import { nextPhase } from '../actions/GameActions'
 
 class Hand extends React.Component {
   state = {
@@ -20,6 +21,7 @@ class Hand extends React.Component {
           selectedCards: []
         })
         this.props.toggleHand();
+        this.props.nextPhase();
       }
     })
   }
@@ -46,7 +48,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     playBYcards: cards => dispatch(playBYcards(cards)),
-    toggleHand: () => dispatch(toggleHand())
+    toggleHand: () => dispatch(toggleHand()),
+    nextPhase: () => dispatch(nextPhase())
   }
 }
 

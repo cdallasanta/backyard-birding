@@ -1,5 +1,6 @@
 import React from 'react';
 import BackyardCard from '../components/cards/backyardCard';
+import { connect } from 'react-redux';
 
 class Backyard extends React.Component {
   renderBYcards(){
@@ -10,7 +11,7 @@ class Backyard extends React.Component {
 
   render(){
     return (
-      <div className="hand" id="hand">
+      <div className="hand" id="backyard">
         {this.renderBYcards()}
       </div>
     );
@@ -18,7 +19,7 @@ class Backyard extends React.Component {
 }
   
 const mapStateToProps = state => {
-  return {hand: state.player.backyard}
+  return {backyard: state.player.backyard}
 }
 
 export default connect(mapStateToProps)(Backyard);
