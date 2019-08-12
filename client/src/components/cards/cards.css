@@ -1,3 +1,4 @@
+/* setting card sizes */
 .card {
   border: 2px solid black;
   border-radius: 12px;
@@ -5,7 +6,11 @@
 }
 
 #hand .card {
-  height: 70%;
+  height: 20vh;
+}
+
+#backyard .card {
+  height: 20vh;
 }
 
 #flock .card {
@@ -31,20 +36,57 @@
 /* spread the hand of cards */
 #hand > .card:nth-child(1) {
   transform: translate(2.5em, 1.75em) rotate(-25deg);
- }
- 
- #hand > .card:nth-child(2) {
+}
+
+#hand > .card:nth-child(2) {
   transform: translate(1em, .4em) rotate(-10deg);
- }
- 
- #hand > .card:nth-child(3) {
+}
+
+#hand > .card:nth-child(3) {
   transform: translate(0em, 0em) rotate(0deg);
- }
- 
- #hand > .card:nth-child(4) {
+}
+
+#hand > .card:nth-child(4) {
   transform: translate(-1em, .4em) rotate(10deg);
- }
- 
- #hand > .card:nth-child(5) {
+}
+
+#hand > .card:nth-child(5) {
   transform: translate(-2.5em, 1.75em) rotate(25deg);
- }
+}
+
+/* animations */
+@keyframes flyIn {
+  0% {
+    transform: translate(-300%, -200%);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {transform: translate(0, 0)}
+}
+
+#flock .bird {
+  animation-name: flyIn;
+  animation-duration: .5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes flyOut {
+  0% {
+    transform: translate(0,0);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {transform: translate(300%, -200%)}
+}
+
+#flock .flyout {
+  animation-name: flyOut;
+  animation-duration: .5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+
+}
