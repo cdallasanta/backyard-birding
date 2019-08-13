@@ -14,9 +14,11 @@ class BirdCard extends React.Component {
   }
 
   handleAnimationEnd = e => {
-    if (e.target.classList.contains("flyToScore") ||
-      e.target.classList.contains("flyAway")){
+    if (e.target.classList.contains("flyToScore")){
       this.props.removeBird(this.props.selectedBird);
+    } else if (e.target.classList.contains("flyAway")) {
+      const birdToRemove = this.props.flock.find(b => `bird-${b.id}` === e.target.id);
+      this.props.removeBird(birdToRemove);
     }
   }
 
@@ -36,7 +38,10 @@ class BirdCard extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {selectedBird: state.game.selectedBird}
+  return {
+    selectedBird: state.game.selectedBird,
+    flock: state.flock
+  }
 }
 
 const mapDispatchToProps = dispatch => {
