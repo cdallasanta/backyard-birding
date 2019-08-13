@@ -6,8 +6,8 @@ const initState = {
   season: { id: 1, name:"spring", src: seasons["spring.png"], points: {
     spring: 4,
     summer: 3,
-    fall: 2,
-    winter: 1,
+    winter: 2,
+    autumn: 1,
     any: 2
   }},
   phase: phases[0],

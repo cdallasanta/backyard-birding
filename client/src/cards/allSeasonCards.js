@@ -1,33 +1,32 @@
 import {seasons} from '../images/allImages';
 
-
 export const seasonCards = [
   { id: 1, name:"spring", src: seasons["spring.png"], points: {
     spring: 4,
     summer: 3,
-    fall: 2,
-    winter: 1,
+    winter: 2,
+    autumn: 1,
     any: 2
   }},
   { id: 2, name:"summer", src: seasons["summer.png"], points: {
-    spring: 1,
     summer: 4,
-    fall: 3,
-    winter: 2,
+    spring: 3,
+    autumn: 2,
+    winter: 1,
     any: 2
   }},
   { id: 3, name:"autumn", src: seasons["autumn.png"], points: {
-    spring: 2,
-    summer: 1,
-    fall: 4,
+    autumn: 4,
     winter: 3,
+    summer: 2,
+    spring: 1,
     any: 2
   }},
   { id: 4, name:"winter", src: seasons["winter.png"], points: {
-    spring: 3,
-    summer: 2,
-    fall: 1,
     winter: 4,
+    autumn: 3,
+    spring: 2,
+    summer: 1,
     any: 2
   }}
 ]

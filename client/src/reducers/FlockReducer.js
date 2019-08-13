@@ -4,9 +4,9 @@ function FlockReducer(state = [], action){
       // add the bird in the 0 index from the bird deck to the flock
       return [...state, action.newBird]
     case "REMOVE_BIRD":
-      const newState = [...state]
-      newState.splice(state.indexOf(action.bird),1);
-      return newState;
+      const newFlock = [...state]
+      newFlock.splice(state.indexOf(action.bird),1);
+      return newFlock;
     default:
       return state;
   }

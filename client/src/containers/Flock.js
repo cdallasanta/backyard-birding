@@ -7,7 +7,7 @@ import { nextPhase, toggleDice } from '../actions/GameActions';
 class Flock extends React.Component {
   renderBirdCards(){
     return this.props.flock.map((bird, i) => {
-      return <BirdCard card={bird} key ={i} handleClick={this.handleClick} selected={this.props.selectedBird === bird} />
+      return <BirdCard card={bird} key ={bird.id} handleClick={this.handleClick} selected={this.props.selectedBird === bird} />
     })
   }
 

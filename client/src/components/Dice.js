@@ -24,17 +24,19 @@ class Dice extends React.Component {
 
   checkForSuccess = result => {
     const BYcards = this.gatherBYcards();
-    let bonus = this.setBonus(BYcards);
+    const bonus = this.setBonus(BYcards);
+    const card = document.getElementById(`bird-${this.props.selectedBird.id}`);
 
     if(result === 6) {
-      //add fly-to-score animation, and when done, do the following
+      card.classList.add("flyToScore")
       this.props.scoreBird(this.props.selectedBird, BYcards)
       this.props.selectBirdAgain();
     } else if(result >= 4-bonus){
-      //add fly-to-score animation, and when done, do the following
+      card.classList.add("flyToScore")
       this.props.scoreBird(this.props.selectedBird, BYcards)
       this.props.nextPhase();
     } else {
+      //remove selected class from bird
       this.props.nextPhase();
     }
   }

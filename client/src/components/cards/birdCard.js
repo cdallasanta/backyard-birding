@@ -16,7 +16,7 @@ class BirdCard extends React.Component {
   handleAnimationEnd = e => {
     if (e.target.classList.contains("flyToScore") ||
       e.target.classList.contains("flyAway")){
-      this.props.removeBird();
+      this.props.removeBird(this.props.selectedBird);
     }
   }
 
@@ -28,10 +28,15 @@ class BirdCard extends React.Component {
         className={`card bird${this.state.zoomed ? " zoomed" : ""}${this.props.selected ? " selected" : ""}`}
         onContextMenu={this.zoomCard}
         onClick={e => this.props.handleClick(e, this.props.card)} 
-        onAnimationEnc={this.handleAnimationEnd}
+        onAnimationEnd={this.handleAnimationEnd}
+        id={`bird-${this.props.card.id}`}
       />
     );
   }
+}
+
+const mapStateToProps = state => {
+  return {selectedBird: state.game.selectedBird}
 }
 
 const mapDispatchToProps = dispatch => {
@@ -40,4 +45,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(BirdCard);
+export default connect(mapStateToProps, mapDispatchToProps)(BirdCard);
