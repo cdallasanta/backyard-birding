@@ -29,6 +29,22 @@ export function showDice() {
 export function gameOver(){
   return (dispatch, getState) => {
     //GAME OVER
-    debugger;
+    // post game
+    const gameState = getState();
+    const gameData = {
+      player: gameState.player.playerName,
+      score: gameState.player.score,
+      season: gameState.game.season.name
+    }
+
+    fetch('http://localhost:3001/api/games', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(gameData)
+    })
+    // reset state
+    console.log("action stuff")
   }
 }

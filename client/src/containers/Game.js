@@ -12,6 +12,7 @@ class Game extends React.Component {
         && this.props.flock.length === 0){
     //GAME OVER
       this.props.gameOver();
+      this.props.history.push('/game_over');
     }
   }
 

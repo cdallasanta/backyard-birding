@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NewGame from './components/NewGame';
 import Game from './containers/Game';
+import GameOver from './components/GameOver';
 import Navbar from './components/Navbar';
 import HighScores from './components/HighScores';
 
@@ -14,6 +15,7 @@ class App extends React.Component {
         <Router>
           <Route exact path='/' component={NewGame} />
           <Route path='/game' component={Game} />
+          <Route path='/game_over' component={GameOver} />
           <Route path='/high_scores' component={HighScores} />
         </Router>
       </div>

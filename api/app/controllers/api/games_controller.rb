@@ -1,6 +1,5 @@
 class Api::GamesController < ApplicationController
   def create
-    binding.pry
     game = Game.create(game_params)
     render :json => game
   end
