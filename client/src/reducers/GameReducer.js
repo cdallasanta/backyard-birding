@@ -27,8 +27,8 @@ function GameReducer(state = initState, action){
       return Object.assign({}, state, {selectedBird: action.bird});
     case "TOGGLE_DICE":
       return Object.assign({}, state, {diceVisible: !state.diceVisible});
-    case "SELECT_BIRD_AGAIN":
-      return Object.assign({}, state, {phase: phases[3]});
+    case "SET_PHASE":
+      return Object.assign({}, state, {phase: phases[action.phase]});
     default:
       return state;
   }

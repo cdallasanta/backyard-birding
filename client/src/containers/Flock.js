@@ -5,10 +5,16 @@ import { selectBird } from '../actions/FlockActions';
 import { nextPhase, toggleDice } from '../actions/GameActions';
 
 class Flock extends React.Component {
-  renderBirdCards(){
+  renderBirdCards = () => {
     return this.props.flock.map((bird, i) => {
       return <BirdCard card={bird} key ={bird.id} handleClick={this.handleClick} selected={this.props.selectedBird === bird} />
     })
+  }
+
+  componentDidUpdate(){
+    if(this.props.phase === "selectBird"){
+      // check if there are available birds, and if there are none, set phase to flight
+    }
   }
 
   handleClick = (e, bird) => {

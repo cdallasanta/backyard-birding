@@ -3,7 +3,11 @@ export function nextPhase() {
 }
 
 export function selectBirdAgain(){
-  return {type: "SELECT_BIRD_AGAIN"}
+  return {type: "SET_PHASE", phase: 3}
+}
+
+export function skipToFlight(){
+  return {type: "SET_PHASE", phase: 5}
 }
 
 export function selectCard(card) {
