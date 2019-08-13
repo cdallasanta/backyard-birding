@@ -12,8 +12,23 @@ import Instructions from '../components/Instructions';
 import Dice from '../components/Dice';
 
 class Decks extends React.Component {
+  state = {
+    birdDeckEnabled: true
+  }
+
   sleep = ms => {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  componentDidUpdate() {
+    if (this.props.game.phase === "drawBirds"
+        && this.props.birdDeck.length === 0
+        && this.state.birdDeckEnabled) {
+      this.setState({birdDeckEnabled : false})
+    } else if (this.props.game.phase === "drawBirds"
+        && this.props.birdDeck.length === 0) {
+      this.props.nextPhase();
+    }
   }
 
   handleClick = async (e) => {
@@ -38,9 +53,17 @@ class Decks extends React.Component {
     return (
       <div className="top-level-container" id="decks">
         <Instructions phase={this.props.game.phase}/>
-        <CardBack card={cardBacks.bird} handleClick={this.handleClick} />
+        <CardBack
+          card={cardBacks.bird}
+          handleClick={this.handleClick}
+          enabled={this.state.birdDeckEnabled}
+        />
         <SeasonCard card={seasonCards.find(c => c.id === this.props.game.season.id)}/>
-        <CardBack card={cardBacks.backyard} handleClick={this.handleClick}  />
+        <CardBack
+          card={cardBacks.backyard}
+          handleClick={this.handleClick}
+          enabled={true}
+        />
         {this.props.game.diceVisible ? <Dice rollDone={this.rollDone} /> : null}
       </div>
     );
@@ -48,7 +71,11 @@ class Decks extends React.Component {
 }
 
 const mapStateToProps = state =>{
-  return {game: state.game}
+  return {
+    game: state.game,
+    flock: state.flock,
+    birdDeck: state.decks.bird
+  }
 }
 
 const mapDispatchToProps = dispatch => {

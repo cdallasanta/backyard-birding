@@ -1,5 +1,5 @@
 :root {
-  --flightAngle: -300%;
+  --flightAngle:
 }
 
 /* setting card sizes */
@@ -45,6 +45,10 @@
 
 .card.selected {
   box-shadow: 0 0px 8px 1px blue;
+}
+
+.disabled {
+  opacity: .3;
 }
 
 

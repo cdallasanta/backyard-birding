@@ -2,8 +2,8 @@ import {birdCards} from '../cards/allBirdCards'
 import {initBackyardDeck} from '../cards/allBackyardCards'
 
 function DecksReducer(state = {
-	//shuffle the bird deck, then take the first fourth of them
-	bird: shuffle([...birdCards]).slice(0,birdCards.length/4),
+	//shuffle the bird deck, then take the first fourth of them (plus one so there's an even number)
+	bird: shuffle([...birdCards]).slice(0,birdCards.length/8),
   backyard: shuffle([...initBackyardDeck])
 }, action){
   switch(action.type){
@@ -14,6 +14,7 @@ function DecksReducer(state = {
 				// remove the 0 indexed card, it is added to the hand in PlayerReducer
 				return Object.assign({}, state, {backyard: state.backyard.slice(1)})
     default:
+			console.log(state.bird.length)
       return state;
   }
 }

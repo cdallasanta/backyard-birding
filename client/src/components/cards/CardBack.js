@@ -8,7 +8,7 @@ const CardBack = props => {
         src={props.card.src}
         alt={props.card.name}
         name={props.card.name}
-        className="card bird cardBack"
+        className={`card bird cardBack${props.enabled ? "" : " disabled"}`}
         onClick={props.handleClick}
       />
     </div>
