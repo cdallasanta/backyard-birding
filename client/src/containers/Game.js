@@ -4,14 +4,14 @@ import Flock from './Flock';
 import Decks from './Decks';
 import PlayerArea from './PlayerArea';
 import './Game.css';
-import { showDice } from '../actions/GameActions';
+import { showDice, gameOver } from '../actions/GameActions';
 
 class Game extends React.Component {
   componentDidUpdate(){
     if (this.props.birdDeck.length === 0
         && this.props.flock.length === 0){
     //GAME OVER
-      console.log("gameOver");
+      this.props.gameOver();
     }
   }
 
@@ -38,7 +38,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch => {
   return {
-    showDice: () => dispatch(showDice())
+    showDice: () => dispatch(showDice()),
+    gameOver: () => dispatch(gameOver())
   }
 }
 

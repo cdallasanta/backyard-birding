@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NewGame from './components/NewGame';
 import Game from './containers/Game';
 import Navbar from './components/Navbar';
-import About from './components/About';
+import HighScores from './components/HighScores';
 
 
 class App extends React.Component {
@@ -14,7 +14,7 @@ class App extends React.Component {
         <Router>
           <Route exact path='/' component={NewGame} />
           <Route path='/game' component={Game} />
-          <Route path='/about' component={About} />
+          <Route path='/high_scores' component={HighScores} />
         </Router>
       </div>
     );

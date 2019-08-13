@@ -29,5 +29,6 @@ export function showDice() {
 export function gameOver(){
   return (dispatch, getState) => {
     //GAME OVER
+    debugger;
   }
 }
