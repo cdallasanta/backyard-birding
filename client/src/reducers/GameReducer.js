@@ -21,12 +21,15 @@ function GameReducer(state = initState, action){
     case "START_GAME":
       return Object.assign({}, state, action.payload);
     case "NEXT_PHASE":
-      let newPhase = phases[phases.indexOf(state.phase) + 1];
+      let newPhaseNum = phases.indexOf(state.phase) + 1 > 5 ? 0 :phases.indexOf(state.phase) + 1;
+      let newPhase = phases[newPhaseNum];
       return Object.assign({}, state, {phase: newPhase});
     case "SELECT_BIRD":
       return Object.assign({}, state, {selectedBird: action.bird});
     case "TOGGLE_DICE":
       return Object.assign({}, state, {diceVisible: !state.diceVisible});
+    case "SHOW_DICE":
+      return Object.assign({}, state, {diceVisible: true});
     case "SET_PHASE":
       return Object.assign({}, state, {phase: phases[action.phase]});
     default:

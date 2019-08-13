@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDice from 'react-dice-complete';
 import { connect } from 'react-redux';
 import 'react-dice-complete/dist/react-dice-complete.css';
-import { nextPhase, selectBirdAgain } from '../actions/GameActions';
+import { nextPhase, selectBirdAgain, toggleDice } from '../actions/GameActions';
 import { scoreBird } from '../actions/PlayerActions';
 
 // this is based off of react-dice by Adam Taylor, found here:
@@ -13,25 +13,36 @@ class Dice extends React.Component {
     loaded: false
   }
 
+  sleep = ms => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   //this gets around the rollDone function running once it renders
-  rollDone = result => {
+  rollDone = async roll => {
     if (!this.state.loaded){
       this.setState({loaded: true})
     } else {
-      this.checkForSuccess(result)
+      if(this.props.phase === "attractBird"){
+        this.checkForSuccess(roll)
+      } else if (this.props.phase === "flightRoll") {
+        this.flightCheck(roll);
+        await this.sleep(1000)
+        this.props.toggleDice();
+        this.props.nextPhase();
+      }
     }
   }
 
-  checkForSuccess = result => {
+  checkForSuccess = roll => {
     const BYcards = this.gatherBYcards();
     const bonus = this.setBonus(BYcards);
     const card = document.getElementById(`bird-${this.props.selectedBird.id}`);
 
-    if(result === 6) {
+    if(roll === 6) {
       card.classList.add("flyToScore")
       this.props.scoreBird(this.props.selectedBird, BYcards)
       this.props.selectBirdAgain();
-    } else if(result >= 4-bonus){
+    } else if(roll >= 4-bonus){
       card.classList.add("flyToScore")
       this.props.scoreBird(this.props.selectedBird, BYcards)
       this.props.nextPhase();
@@ -42,7 +53,7 @@ class Dice extends React.Component {
   }
 
   gatherBYcards = () => {
-        // checks the backyard for the first card that matches the bird's need
+    // checks the backyard for the first card that matches the bird's need
     // if there are undefined values, pass through again looking for a second copy of the first need
     // the filter removes 'undefined' from the array when no backyard card matches the need
     const BYcopy = [...this.props.backyard]
@@ -73,6 +84,14 @@ class Dice extends React.Component {
     }
   }
 
+  flightCheck = roll => {
+    this.props.flock.forEach(bird => {
+      if (bird.flightNums.includes(roll)) {
+        document.getElementById(`bird-${bird.id}`).classList.add("flyAway");
+      }
+    })
+  }
+
   render() {
     return(
       <div id="dice">
@@ -92,7 +111,9 @@ class Dice extends React.Component {
 const mapStateToProps = state => {
   return {
     selectedBird: state.game.selectedBird,
-    backyard: state.player.backyard
+    backyard: state.player.backyard,
+    phase: state.game.phase,
+    flock: state.flock
   }
 }
 
@@ -100,6 +121,7 @@ const mapDispatchToProps = dispatch => {
   return {
     nextPhase: () => dispatch(nextPhase()),
     selectBirdAgain: () => dispatch(selectBirdAgain()),
+    toggleDice: () => dispatch(toggleDice()),
     scoreBird: (bird, BYcards) => dispatch(scoreBird(bird, BYcards))
   }
 }

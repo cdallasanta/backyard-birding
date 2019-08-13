@@ -17,3 +17,7 @@ export function selectCard(card) {
 export function toggleDice() {
   return {type: "TOGGLE_DICE"}
 }
+
+export function showDice() {
+  return {type: "SHOW_DICE"}
+}

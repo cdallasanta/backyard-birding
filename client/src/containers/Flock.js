@@ -11,12 +11,6 @@ class Flock extends React.Component {
     })
   }
 
-  componentDidUpdate(){
-    if(this.props.phase === "selectBird"){
-      // check if there are available birds, and if there are none, set phase to flight
-    }
-  }
-
   handleClick = (e, bird) => {
     if (this.props.phase === "chooseBird") {
       this.props.selectBird(bird);
