@@ -1,3 +1,7 @@
+:root {
+  --flightAngle: -300%;
+}
+
 /* setting card sizes */
 .card {
   border: 2px solid black;
@@ -109,7 +113,7 @@
   75% {
     opacity: 0;
   }
-  100% {transform: translate(-300%, -200%)}
+  100% {transform: translate(var(--flightAngle), -200%)}
 }
 
 #flock .flyAway {
