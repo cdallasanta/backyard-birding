@@ -8,18 +8,8 @@ export function drawBird() {
   };
 }
 
-export function scoreBird(bird, BYcards) {
-  return (dispatch, getState) => {
-    const wholeState = getState();
-    dispatch({
-      type: "SCORE_BIRD",
-      payload: {
-        bird,
-        BYcards,
-        score: wholeState.game.season.points[bird.season]
-      }
-    })
-  }
+export function removeBird(bird){
+  return {type: "REMOVE_BIRD", bird}
 }
 
 export function selectBird(bird) {

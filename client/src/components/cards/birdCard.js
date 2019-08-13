@@ -1,5 +1,7 @@
 import React from 'react';
 import './cards.css'
+import { removeBird } from '../../actions/FlockActions';
+import { connect } from 'react-redux';
 
 class BirdCard extends React.Component {
   state = {
@@ -11,11 +13,31 @@ class BirdCard extends React.Component {
     this.setState({zoomed: !this.state.zoomed})
   }
 
+  handleAnimationEnd = e => {
+    if (e.target.classList.contains("flyToScore") ||
+      e.target.classList.contains("flyAway")){
+      this.props.removeBird();
+    }
+  }
+
   render(){
     return(
-      <img src={this.props.card.src} alt={this.props.card.name} className={`card bird${this.state.zoomed ? " zoomed" : ""}${this.props.selected ? " selected" : ""}`} onContextMenu={this.zoomCard} onClick={e => this.props.handleClick(e, this.props.card)} />
+      <img
+        src={this.props.card.src}
+        alt={this.props.card.name}
+        className={`card bird${this.state.zoomed ? " zoomed" : ""}${this.props.selected ? " selected" : ""}`}
+        onContextMenu={this.zoomCard}
+        onClick={e => this.props.handleClick(e, this.props.card)} 
+        onAnimationEnc={this.handleAnimationEnd}
+      />
     );
   }
 }
 
-export default BirdCard;
+const mapDispatchToProps = dispatch => {
+  return {
+    removeBird: bird => dispatch(removeBird(bird))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(BirdCard);

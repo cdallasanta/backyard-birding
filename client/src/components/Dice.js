@@ -3,7 +3,7 @@ import ReactDice from 'react-dice-complete';
 import { connect } from 'react-redux';
 import 'react-dice-complete/dist/react-dice-complete.css';
 import { nextPhase, selectBirdAgain } from '../actions/GameActions';
-import { scoreBird } from '../actions/FlockActions';
+import { scoreBird } from '../actions/PlayerActions';
 
 // this is based off of react-dice by Adam Taylor, found here:
 // https://github.com/AdamTyler/react-dice-complete/blob/master/src/Die.js
@@ -13,7 +13,7 @@ class Dice extends React.Component {
     loaded: false
   }
 
-  //this gets around the function running once it renders
+  //this gets around the rollDone function running once it renders
   rollDone = result => {
     if (!this.state.loaded){
       this.setState({loaded: true})

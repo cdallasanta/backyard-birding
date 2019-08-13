@@ -83,7 +83,7 @@
   animation-timing-function: ease-out;
 }
 
-@keyframes flyOut {
+@keyframes flyToScore {
   0% {
     transform: translate(0,0);
     opacity: 1;
@@ -94,8 +94,8 @@
   100% {transform: translate(-300%, -200%)}
 }
 
-#flock .flyout {
-  animation-name: flyOut;
+#flock .flyToScore {
+  animation-name: flyToScore;
   animation-duration: .5s;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
