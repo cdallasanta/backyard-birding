@@ -84,10 +84,11 @@ class Dice extends React.Component {
     }
   }
 
-  flightCheck = roll => {
+  flightCheck = async roll => {
     this.props.flock.forEach(bird => {
       if (bird.flightNums.includes(roll)) {
         document.getElementById(`bird-${bird.id}`).classList.add("flyAway");
+        await this.sleep(200)
       }
     })
   }
