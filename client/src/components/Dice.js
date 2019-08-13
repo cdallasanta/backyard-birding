@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import 'react-dice-complete/dist/react-dice-complete.css';
 import { nextPhase, selectBirdAgain, toggleDice } from '../actions/GameActions';
 import { scoreBird } from '../actions/PlayerActions';
+import { selectBird } from '../actions/FlockActions';
 
 // this is based off of react-dice by Adam Taylor, found here:
 // https://github.com/AdamTyler/react-dice-complete/blob/master/src/Die.js
@@ -20,13 +21,13 @@ class Dice extends React.Component {
   //this gets around the rollDone function running once it renders
   rollDone = async roll => {
     if (!this.state.loaded){
-      this.setState({loaded: true})
+      this.setState({loaded: true});
     } else {
       if(this.props.phase === "attractBird"){
-        this.checkForSuccess(roll)
+        this.checkForSuccess(roll);
       } else if (this.props.phase === "flightRoll") {
         this.flightCheck(roll);
-        await this.sleep(1000)
+        await this.sleep(1000);
         this.props.toggleDice();
         this.props.nextPhase();
       }
@@ -39,15 +40,16 @@ class Dice extends React.Component {
     const card = document.getElementById(`bird-${this.props.selectedBird.id}`);
 
     if(roll === 6) {
-      card.classList.add("flyToScore")
-      this.props.scoreBird(this.props.selectedBird, BYcards)
+      card.classList.add("flyToScore");
+      this.props.scoreBird(this.props.selectedBird, BYcards);
       this.props.selectBirdAgain();
     } else if(roll >= 4-bonus){
-      card.classList.add("flyToScore")
-      this.props.scoreBird(this.props.selectedBird, BYcards)
+      card.classList.add("flyToScore");
+      this.props.scoreBird(this.props.selectedBird, BYcards);
       this.props.nextPhase();
     } else {
-      //remove selected class from bird
+      card.classList.remove('selected');
+      this.props.selectBird(null);
       this.props.nextPhase();
     }
   }
@@ -85,10 +87,11 @@ class Dice extends React.Component {
   }
 
   flightCheck = async roll => {
-    this.props.flock.forEach(bird => {
+    debugger;
+    this.props.flock.forEach(async bird => {
       if (bird.flightNums.includes(roll)) {
         document.getElementById(`bird-${bird.id}`).classList.add("flyAway");
-        await this.sleep(200)
+        await this.sleep(1000)
       }
     })
   }
@@ -123,7 +126,8 @@ const mapDispatchToProps = dispatch => {
     nextPhase: () => dispatch(nextPhase()),
     selectBirdAgain: () => dispatch(selectBirdAgain()),
     toggleDice: () => dispatch(toggleDice()),
-    scoreBird: (bird, BYcards) => dispatch(scoreBird(bird, BYcards))
+    scoreBird: (bird, BYcards) => dispatch(scoreBird(bird, BYcards)),
+    selectBird: bird => dispatch(selectBird(bird))
   }
 }
 

@@ -24,8 +24,8 @@
   border-radius: 35px;
 }
 
-#decks .card{
- height: 70%
+.cardBack {
+ height: 125px;
 }
 
 .seasonCard {

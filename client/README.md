@@ -1,3 +1,13 @@
+TODO:
+remove selected on failed roll
+random fly away directions (and in?)
+not all cards are disappearing when they should
+cannot select a bird with no matching cards
+flight roll of 6 sending them back to pick bird
+end of flight deck
+gameover component to add to high schores
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

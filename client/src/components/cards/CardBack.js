@@ -3,7 +3,15 @@ import './cards.css'
 
 const CardBack = props => {
   return(
-    <img src={props.card.src} alt={props.card.name} name={props.card.name} className="card bird" onClick={props.handleClick} />
+    <div className="deck">
+      <img
+        src={props.card.src}
+        alt={props.card.name}
+        name={props.card.name}
+        className="card bird cardBack"
+        onClick={props.handleClick}
+      />
+    </div>
   );
 }
 
