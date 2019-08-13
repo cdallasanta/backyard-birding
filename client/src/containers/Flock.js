@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BirdCard from '../components/cards/birdCard';
 import { selectBird } from '../actions/FlockActions';
-import { nextPhase, toggleDice } from '../actions/GameActions';
+import { nextPhase, showDice } from '../actions/GameActions';
 
 class Flock extends React.Component {
   renderBirdCards = () => {
@@ -38,7 +38,7 @@ class Flock extends React.Component {
       if (this.props.phase === "chooseBird") {
         this.props.selectBird(bird);
         this.props.nextPhase();
-        this.props.toggleDice();
+        this.props.showDice();
       } else if (this.props.phase === "attractBird") {
         this.props.selectBird(bird);
       }
@@ -67,7 +67,7 @@ const mapDispatchToProps = dispatch => {
   return {
     selectBird: bird => dispatch(selectBird(bird)),
     nextPhase: () => dispatch(nextPhase()),
-    toggleDice: () => dispatch(toggleDice())
+    showDice: () => dispatch(showDice())
   }
 }
 
