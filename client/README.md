@@ -1,6 +1,7 @@
 TODO:
 end of flight deck
-gameover component to add to high schores
+no birds in flock on a 6 roll
+gameover component to add to high scores
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

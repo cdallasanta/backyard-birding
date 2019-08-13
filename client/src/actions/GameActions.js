@@ -10,6 +10,10 @@ export function skipToFlight(){
   return {type: "SET_PHASE", phase: 5}
 }
 
+export function skipBirdDraw(){
+  return {type: "SET_PHASE", phase: 1}
+}
+
 export function selectCard(card) {
   return {type: "SELECT_CARD", card}
 }
@@ -20,4 +24,10 @@ export function toggleDice() {
 
 export function showDice() {
   return {type: "SHOW_DICE"}
+}
+
+export function gameOver(){
+  return (dispatch, getState) => {
+    //GAME OVER
+  }
 }

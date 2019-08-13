@@ -6,7 +6,7 @@ import { seasonCards } from '../cards/allSeasonCards';
 import { cardBacks } from '../cards/allCardBacks';
 import { drawBird } from '../actions/FlockActions';
 import { drawBYcard } from '../actions/HandActions';
-import { nextPhase } from '../actions/GameActions';
+import { nextPhase, skipBirdDraw } from '../actions/GameActions';
 import { toggleHand } from '../actions/PlayerActions';
 import Instructions from '../components/Instructions';
 import Dice from '../components/Dice';
@@ -27,7 +27,7 @@ class Decks extends React.Component {
       this.setState({birdDeckEnabled : false})
     } else if (this.props.game.phase === "drawBirds"
         && this.props.birdDeck.length === 0) {
-      this.props.nextPhase();
+      this.props.skipBirdDraw();
     }
   }
 
@@ -36,7 +36,9 @@ class Decks extends React.Component {
       this.props.drawBird();
       await this.sleep(150)
       this.props.drawBird();
-      this.props.nextPhase();
+      if (this.props.game.phase === "drawBirds") {
+        this.props.nextPhase();
+      }
     } else if (this.props.game.phase === "drawBYcards" && e.target.getAttribute('name') === "backyardDeck") {
       this.props.toggleHand();
       this.props.drawBYcard();
@@ -45,6 +47,7 @@ class Decks extends React.Component {
     }
   }
 
+  // TODO is this needed?
   rollDone = () => {
 
   }
@@ -83,7 +86,8 @@ const mapDispatchToProps = dispatch => {
     drawBird: () => dispatch(drawBird()),
     nextPhase: () => dispatch(nextPhase()),
     drawBYcard: () => dispatch(drawBYcard()),
-    toggleHand: () => dispatch(toggleHand())
+    toggleHand: () => dispatch(toggleHand()),
+    skipBirdDraw: () => dispatch(skipBirdDraw())
   }
 }
 

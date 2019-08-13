@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: MyString
+  score: 
+  season: MyString
+
+two:
+  player: MyString
+  score: 
+  season: MyString

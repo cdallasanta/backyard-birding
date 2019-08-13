@@ -2,9 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 import BirdCard from '../components/cards/birdCard';
 import { selectBird } from '../actions/FlockActions';
-import { nextPhase, showDice } from '../actions/GameActions';
+import { nextPhase, showDice, skipToFlight } from '../actions/GameActions';
 
 class Flock extends React.Component {
+  componentDidUpdate(){
+    if(this.props.phase === "chooseBird"){
+      // check if there are available birds, and if there are none, set phase to flight
+      let skip = true;
+
+      this.props.flock.forEach(bird => {
+        this.props.backyard.forEach(by => {
+          if (bird.habitat.includes(by.type)){
+            skip = false;
+          }
+        })
+      })
+
+      if(skip){
+        this.props.skipToFlight();
+        this.props.showDice();
+      }
+    }
+  }
+
   renderBirdCards = () => {
     return this.props.flock.map((bird, i) => {
       return <BirdCard card={bird} key ={bird.id} handleClick={this.handleClick} selected={this.props.selectedBird === bird} />
@@ -67,6 +87,7 @@ const mapDispatchToProps = dispatch => {
   return {
     selectBird: bird => dispatch(selectBird(bird)),
     nextPhase: () => dispatch(nextPhase()),
+    skipToFlight: () => dispatch(skipToFlight()),
     showDice: () => dispatch(showDice())
   }
 }
