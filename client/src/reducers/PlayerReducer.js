@@ -1,5 +1,5 @@
 const initState = {
-  playerName: "",
+  playerName: "Unknown Birder",
   score: 0,
   hand: [],
   backyard: [],
