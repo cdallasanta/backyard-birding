@@ -24,8 +24,9 @@ let shuffle = function (array) {
 	return array;
 };
 
+// bird: shuffle([...birdCards]).slice(0,birdCards.length/4+1),
 const initState = {
-	bird: shuffle([...birdCards]).slice(0,birdCards.length/4+1),
+	bird: shuffle([...birdCards]).slice(0,2),
   backyard: shuffle([...initBackyardDeck])
 }
 

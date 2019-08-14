@@ -1,0 +1,29 @@
+{
+  "name": "backyard-birding",
+  "version": "1.0.0",
+  "description": "Web app version of the Backyard Birding board game.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "engines": {
+    "node": "6.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdallasanta/backyard-birding.git"
+  },
+  "author": "Chris Dalla Santa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdallasanta/backyard-birding/issues"
+  },
+  "homepage": "https://github.com/cdallasanta/backyard-birding#readme"
+}

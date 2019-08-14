@@ -10,3 +10,4 @@ namespace :git do
     system "git push -u origin master"
   end
 end
+task :commit => 'git:commit'
