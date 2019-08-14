@@ -7,7 +7,6 @@ const initState = {
   diceVisible: false
 }
 
-// TODO, don't want spring as default, this is only here for ease of development
 function GameReducer(state = initState, action){
   switch(action.type){
     case "START_GAME":

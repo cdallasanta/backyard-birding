@@ -29,9 +29,9 @@ body {
 
 #score {
   position:absolute;
-  right: 0px;
-  width: 100px;
+  right: 50px;
   height: 100px;
+  font-size: 275%;
 }
 
 #hand {

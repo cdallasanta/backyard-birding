@@ -30,7 +30,6 @@ class NewGame extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const payload = Object.assign({}, this.state, {season: seasonCards.find(c => c.name === this.state.season)})
-    if (payload.playerName === ""){payload.playerName = "Unknown Birder"}
 
     this.props.startGame(payload);
     this.props.history.push('/game');

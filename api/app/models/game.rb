@@ -1,5 +1,14 @@
 class Game < ApplicationRecord
+  after_initialize :init
+
+  def init
+    if self.player == ""
+      self.player = "Unknown Birder"
+      self.save
+    end
+  end
+
   def self.high_scores
-    Game.order(score: :asc).last(10).reverse
+    Game.order(score: :desc).last(10)
   end
 end
