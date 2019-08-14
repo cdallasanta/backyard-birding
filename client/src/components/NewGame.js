@@ -16,6 +16,10 @@ class NewGame extends React.Component {
     playerName: ""
   }
 
+  componentDidMount(){
+    this.props.reset()
+  }
+
   handleChange = e =>{
     this.setState({
       [e.target.name]: e.target.value
@@ -56,7 +60,8 @@ class NewGame extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     startGame: payload => dispatch({type: "START_GAME", payload}),
-    drawBYcard: num => dispatch(drawBYcard(num))
+    drawBYcard: num => dispatch(drawBYcard(num)),
+    reset: () => dispatch({type:"RESET_GAME"})
   }
 }
 

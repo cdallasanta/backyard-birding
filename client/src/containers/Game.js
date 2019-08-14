@@ -11,8 +11,8 @@ class Game extends React.Component {
     if (this.props.birdDeck.length === 0
         && this.props.flock.length === 0){
     //GAME OVER
-      this.props.gameOver();
-      this.props.history.push('/game_over');
+      this.props.gameOver()
+        .then(() => this.props.history.push('/game_over'));
     }
   }
 

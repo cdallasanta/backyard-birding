@@ -45,16 +45,12 @@ export function gameOver(){
       season: gameState.game.season.name
     }
 
-    fetch('http://localhost:3001/api/games', {
+    return fetch('http://localhost:3001/api/games', {
       headers: {
         'Content-Type': 'application/json'
       },
       method: 'POST',
       body: JSON.stringify(gameData)
     })
-    
-    // reset state
-    dispatch({type:"RESET_GAME"});
-    // now redirect from the action controller?
   }
 }

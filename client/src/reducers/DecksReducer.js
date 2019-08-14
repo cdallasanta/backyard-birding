@@ -24,9 +24,8 @@ let shuffle = function (array) {
 	return array;
 };
 
-// TODO change deck length back
 const initState = {
-	bird: shuffle([...birdCards]).slice(0,birdCards.length/8),
+	bird: shuffle([...birdCards]).slice(0,birdCards.length/4),
   backyard: shuffle([...initBackyardDeck])
 }
 
