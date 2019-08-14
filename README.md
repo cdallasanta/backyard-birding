@@ -11,7 +11,7 @@ This is a web adaptation of the [Backyard Birding](https://www.kickstarter.com/p
 Once the bird deck and flock are both empty, the game is over!
 
 ## Usage
-To run the app locally, clone this repo. Run `rake start` and Foreman will take care of the rest. You can then navigate to localhost:3000 t
+To run the app locally, clone this repo. Run `rake start` and Foreman will take care of the rest. You can then navigate to localhost:3000 and start playing.
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/cdallasanta/ropes-sinatra. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
