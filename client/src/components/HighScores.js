@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getGames } from '../actions/GameActions';
+import './high_scores.css'
 
 class HighScores extends React.Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class HighScores extends React.Component {
   renderScores = () => {
     return this.props.games.map(game => {
       return(
-        <li key={game.id} >{game.player} -- {game.season} -- {game.score}</li>
+        <li key={game.id} ><strong>{game.player}</strong> -- {game.season} -- {game.score}</li>
       )
     })
   }
@@ -19,6 +20,7 @@ class HighScores extends React.Component {
     if (this.props.loading){return "...Loading high scores..."}
     return(
       <div id="scores">
+        <h2>High Scores:</h2>
         <ol>
           {this.renderScores()}
         </ol>

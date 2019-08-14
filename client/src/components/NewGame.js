@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from 'react-redux';
 import { drawBYcard } from '../actions/HandActions';
 import { seasonCards } from '../cards/allSeasonCards'
+import './newGame.css'
 
 const colors = {
-  spring: "palegreen",
+  spring: "darkseagreen",
   summer: "khaki",
-  autumn: "peru",
+  autumn: "burlywood",
   winter: "lightblue"
 }
 
@@ -33,14 +34,15 @@ class NewGame extends React.Component {
 
     this.props.startGame(payload);
     this.props.history.push('/game');
-    
+
     document.body.style.setProperty("--season-color", colors[this.state.season]);
     this.props.drawBYcard(3);
   }
 
   render(){
     return(
-      <div>
+      <div id="newGame">
+        <h1>Welcome to Backyard Birding!</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
             Player Name: <input type="text" name="playerName" value={this.state.playerName} onChange={this.handleChange} />

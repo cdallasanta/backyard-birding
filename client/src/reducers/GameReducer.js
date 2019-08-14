@@ -1,15 +1,7 @@
-import {seasons} from '../images/allImages';
-
 const phases = ["drawBirds", "drawBYcards", "playBYcards", "chooseBird", "attractBird", "flightRoll"]
 
 const initState = {
-  season: { id: 1, name:"spring", src: seasons["spring.png"], points: {
-    spring: 4,
-    summer: 3,
-    winter: 2,
-    autumn: 1,
-    any: 2
-  }},
+  season: {},
   phase: phases[0],
   selectedBird: null,
   diceVisible: false

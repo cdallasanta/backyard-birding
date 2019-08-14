@@ -6,8 +6,10 @@ class GameOver extends React.Component {
   render(){
     return(
       <div id="gameOver">
-        Game Over! You scored: {this.props.score} points!<br />
+        <h2>Game Over!</h2>
+        You scored: {this.props.score} points!<br />
         <a href="/">Play again?</a>
+        <hr />
         <HighScores />
       </div>
     )
