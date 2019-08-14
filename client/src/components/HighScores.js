@@ -1,22 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getGames } from '../actions/GameActions';
 
 class HighScores extends React.Component {
-  constructor(props){
-    super(props)
-
-    this.state = {
-      scores:[]
-    }
-  }
-
   componentDidMount() {
-    fetch('http://localhost:3001/api/high_scores')
-      .then(resp => resp.json())
-      .then(scores => this.setState({scores: scores}))
+    this.props.getGames();
   }
 
   renderScores = () => {
-    return this.state.scores.map(game => {
+    return this.props.games.map(game => {
       return(
         <li key={game.id} >{game.player} -- {game.season} -- {game.score}</li>
       )
@@ -24,6 +16,7 @@ class HighScores extends React.Component {
   }
 
   render(){
+    if (this.props.loading){return "...Loading high scores..."}
     return(
       <div id="scores">
         <ol>
@@ -34,4 +27,15 @@ class HighScores extends React.Component {
   }
 }
 
-export default HighScores;
+const mapStateToProps = state => {
+  return {
+    games: state.pastScores.games,
+    loading: state.pastScores.loading
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {getGames: () => dispatch(getGames())}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HighScores);

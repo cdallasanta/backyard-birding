@@ -7,6 +7,8 @@ function FlockReducer(state = [], action){
       const newFlock = [...state]
       newFlock.splice(state.indexOf(action.bird),1);
       return newFlock;
+    case "RESET_GAME":
+        return [];
     default:
       return state;
   }

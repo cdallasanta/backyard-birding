@@ -32,6 +32,8 @@ function GameReducer(state = initState, action){
       return Object.assign({}, state, {diceVisible: true});
     case "SET_PHASE":
       return Object.assign({}, state, {phase: phases[action.phase]});
+    case "RESET_GAME":
+      return initState;
     default:
       return state;
   }

@@ -26,10 +26,18 @@ export function showDice() {
   return {type: "SHOW_DICE"}
 }
 
+export function getGames() {
+  return dispatch => {
+    dispatch({type:"LOADING_SCORES"})
+    fetch('http://localhost:3001/api/high_scores')
+      .then(resp => resp.json())
+      .then(scores => dispatch({type:"SET_SCORES", payload: scores}))
+  }
+}
+
 export function gameOver(){
   return (dispatch, getState) => {
-    //GAME OVER
-    // post game
+    // post the game
     const gameState = getState();
     const gameData = {
       player: gameState.player.playerName,
@@ -44,7 +52,9 @@ export function gameOver(){
       method: 'POST',
       body: JSON.stringify(gameData)
     })
+    
     // reset state
-    console.log("action stuff")
+    dispatch({type:"RESET_GAME"});
+    // now redirect from the action controller?
   }
 }

@@ -48,7 +48,8 @@ function PlayerReducer(state = initState, action){
         {score: state.score + action.payload.score},
         {backyard: newBY}
       );
-    
+    case "RESET_GAME":
+      return initState;
     default:
       return state;
   }

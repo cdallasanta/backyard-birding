@@ -1,27 +1,6 @@
 import {birdCards} from '../cards/allBirdCards'
 import {initBackyardDeck} from '../cards/allBackyardCards'
 
-// TODO change deck length back
-
-function DecksReducer(state = {
-	//shuffle the bird deck, then take the first fourth of them (plus one so there's an even number)
-	bird: shuffle([...birdCards]).slice(0,birdCards.length/8),
-  backyard: shuffle([...initBackyardDeck])
-}, action){
-  switch(action.type){
-    case "DRAW_BIRD":
-			// remove the 0 indexed card, it is added to the flock in FlockReducer
-      return Object.assign({}, state, {bird: state.bird.slice(1)})
-		case "DRAW_BACKYARD_CARD":
-				// remove the 0 indexed card, it is added to the hand in PlayerReducer
-				return Object.assign({}, state, {backyard: state.backyard.slice(1)})
-    default:
-      return state;
-  }
-}
-
-export default DecksReducer
-
 
 // this Fisher-Yates shuffle function is taken from
 // https://gomakethings.com/how-to-shuffle-an-array-with-vanilla-js/
@@ -44,3 +23,27 @@ let shuffle = function (array) {
 
 	return array;
 };
+
+// TODO change deck length back
+const initState = {
+	bird: shuffle([...birdCards]).slice(0,birdCards.length/8),
+  backyard: shuffle([...initBackyardDeck])
+}
+
+function DecksReducer(state = initState, action){
+  switch(action.type){
+    case "DRAW_BIRD":
+			// remove the 0 indexed card, it is added to the flock in FlockReducer
+      return Object.assign({}, state, {bird: state.bird.slice(1)})
+		case "DRAW_BACKYARD_CARD":
+				// remove the 0 indexed card, it is added to the hand in PlayerReducer
+				return Object.assign({}, state, {backyard: state.backyard.slice(1)})
+		case "RESET_GAME":
+			return initState;
+    default:
+      return state;
+  }
+}
+
+export default DecksReducer
+
