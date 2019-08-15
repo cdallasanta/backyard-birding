@@ -36,7 +36,7 @@ export function getGames() {
 }
 
 export function gameOver(){
-  return (dispatch, getState) => {
+  return getState => {
     // post the game
     const gameState = getState();
     const gameData = {

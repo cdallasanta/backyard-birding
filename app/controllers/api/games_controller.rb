@@ -8,6 +8,10 @@ class Api::GamesController < ApplicationController
     render :json => Game.high_scores
   end
 
+  def fallback_index_html
+    render :file => 'public/index.html'
+  end
+
   private
 
   def game_params
