@@ -54,7 +54,7 @@
 
 /* spread the hand of cards */
 #hand > .card:nth-child(1) {
-  transform: translate(2.5em, 40px) rotate(-25deg);
+  transform: translate(2.5em, 2em) rotate(-25deg);
 }
 
 #hand > .card:nth-child(2) {
@@ -70,7 +70,7 @@
 }
 
 #hand > .card:nth-child(5) {
-  transform: translate(-2.5em, 40px) rotate(25deg);
+  transform: translate(-2.5em, 2em) rotate(25deg);
 }
 
 /* animations */
