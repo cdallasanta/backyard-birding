@@ -45,7 +45,7 @@ export function gameOver(){
       season: wholeState.game.season.name
     }
 
-    return fetch('http://localhost:3001/api/games', {
+    return fetch('/api/games', {
       headers: {
         'Content-Type': 'application/json'
       },
