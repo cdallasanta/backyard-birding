@@ -24,7 +24,7 @@
     "url": "git+https://github.com/cdallasanta/backyard-birding.git"
   },
   "author": "Chris Dalla Santa",
-  "license": "ISC",
+  "license": "GNU",
   "bugs": {
     "url": "https://github.com/cdallasanta/backyard-birding/issues"
   }
