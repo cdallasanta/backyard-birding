@@ -4,6 +4,7 @@ import NewGame from './components/NewGame';
 import Game from './containers/Game';
 import GameOver from './components/GameOver';
 import HighScores from './components/HighScores';
+import NotFound from './components/NotFound';
 
 
 class App extends React.Component {
