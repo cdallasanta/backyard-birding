@@ -36,13 +36,13 @@ export function getGames() {
 }
 
 export function gameOver(){
-  return getState => {
+  return (dispatch, getState) => {
     // post the game
-    const gameState = getState();
+    const wholeState = getState();
     const gameData = {
-      player: gameState.player.playerName,
-      score: gameState.player.score,
-      season: gameState.game.season.name
+      player: wholeState.player.playerName,
+      score: wholeState.player.score,
+      season: wholeState.game.season.name
     }
 
     return fetch('http://localhost:3001/api/games', {

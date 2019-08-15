@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::API
-  protect_from_forgery with: :exception
+
+  def root
+    "Root of server"
+  end
   
   def fallback_index_html
     render :file => 'public/index.html'
