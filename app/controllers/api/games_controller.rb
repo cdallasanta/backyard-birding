@@ -5,7 +5,6 @@ class Api::GamesController < ApplicationController
   end
 
   def high_scores
-    binding.pry
     render :json => Game.high_scores
   end
 
