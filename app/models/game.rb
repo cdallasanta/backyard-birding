@@ -9,6 +9,6 @@ class Game < ApplicationRecord
   end
 
   def self.high_scores
-    Game.order(score: :desc).last(10)
+    Game.order(score: :desc).limit(10)
   end
 end
