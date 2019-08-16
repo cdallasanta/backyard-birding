@@ -38,6 +38,11 @@ class NewGame extends React.Component {
     this.props.drawBYcard(3);
   }
 
+  handleClick = e => {
+    e.preventDefault();
+    this.props.history.push('/high_scores');
+  }
+
   render(){
     return(
       <div id="newGame">
@@ -57,7 +62,7 @@ class NewGame extends React.Component {
           <input type="submit" value="Start Game" />
         </form>
         <div>
-          <a href="/high_scores">View High Scores</a>
+          <a href="#" onClick={this.handleClick}>View High Scores</a>
         </div>
       </div>
     );
