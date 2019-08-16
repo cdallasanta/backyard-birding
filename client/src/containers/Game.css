@@ -18,13 +18,14 @@ body {
 
 #instructions {
   position: absolute;
-  border: 1px solid black;
-  width: 250px;
-  top: 40px;
-  left: 40px;
+  border: 2px solid black;
+  width: 19vw;
+  top: 4vh;
+  left: 3vw;
   text-align: center;
   vertical-align: middle;
-  font-size: 2em;
+  font-size: 1.9em;
+  border-radius: .6em;
 }
 
 #score {
