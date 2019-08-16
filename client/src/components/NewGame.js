@@ -56,6 +56,9 @@ class NewGame extends React.Component {
 
           <input type="submit" value="Start Game" />
         </form>
+        <div>
+          <a href="/high_scores">View High Scores</a>
+        </div>
       </div>
     );
   }
