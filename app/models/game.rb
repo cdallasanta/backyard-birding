@@ -9,6 +9,6 @@ class Game < ApplicationRecord
   end
 
   def self.high_scores
-    Game.order(score: :desc).first(10)
+    Game.order(score: :desc, created_at: :desc).first(10)
   end
 end
