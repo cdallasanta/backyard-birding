@@ -10,7 +10,6 @@ export const birdCards = [
   { id: 6, src: birds["bandTailedPigeon.png"], name: "Band-Tailed Pigeon", flightNums: [1,2], season: "summer", habitat: ["trees", "nuts"] },
   { id: 7, src: birds["beltedKingfisher.png"], name: "Belted Kingfisher", flightNums: [3,4], season: "autumn", habitat: ["fish", "wetland"] },
   { id: 8, src: birds["bewicksWren.png"], name: "Bewick's Wren", flightNums: [5,6], season: "autumn", habitat: ["seeds", "trees"] },
-  { id: 9, src: birds["bewicksWren.png"], name: "Bewick's Wren", flightNums: [5,6], season: "autumn", habitat: ["seeds", "trees"] },
   { id: 10, src: birds["blackCappedChickadee.png"], name: "Black-Capped Chickadee", flightNums: [1,2], season: "any", habitat: ["nuts", "trees"] },
   { id: 11, src: birds["bufflehead.png"], name: "Bufflehead", flightNums: [3,4], season: "winter", habitat: ["runningWater", "wildGrass"] },
   { id: 12, src: birds["bushtit.png"], name: "Bushtit", flightNums: [5,6], season: "winter", habitat: ["insects", "trees"] },
