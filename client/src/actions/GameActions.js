@@ -29,7 +29,7 @@ export function showDice() {
 export function getGames() {
   return dispatch => {
     dispatch({type:"LOADING_SCORES"}, {method: "GET"})
-    fetch('/api/high_scores')
+    fetch('http://localhost:3001/api/high_scores')
       .then(resp => resp.json())
       .then(scores => dispatch({type:"SET_SCORES", payload: scores}))
   }
@@ -45,7 +45,7 @@ export function gameOver(){
       season: wholeState.game.season.name
     }
 
-    return fetch('/api/games', {
+    return fetch('http://localhost:3001/api/games', {
       headers: {
         'Content-Type': 'application/json'
       },
