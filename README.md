@@ -14,10 +14,10 @@ Once the bird deck and flock are both empty, the game is over!
 To run the app locally, clone this repo. Run `rake start` and Foreman will take care of the rest. You can then navigate to localhost:3000 and start playing.
 
 ## Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/cdallasanta/ropes-sinatra. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/cdallasanta/backyard-birding. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 ## License
-The gem is available as open source under the terms of the GNU General Public License.
+This app is available as open source under the terms of the GNU General Public License.
 
 ## Code of Conduct
 Everyone interacting in Backyard Birding's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
