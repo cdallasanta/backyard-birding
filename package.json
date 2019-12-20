@@ -27,5 +27,8 @@
   "license": "GNU",
   "bugs": {
     "url": "https://github.com/cdallasanta/backyard-birding/issues"
+  },
+  "dependencies": {
+    "react-big-calendar": "^0.22.1"
   }
 }

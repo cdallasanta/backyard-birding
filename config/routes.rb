@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'high_scores', to: 'games#high_scores'
   end
 
-  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+  get '*path', to: "static_pages#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 end
