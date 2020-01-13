@@ -17,7 +17,7 @@ function PlayerReducer(state = initState, action){
 
     case "DRAW_BACKYARD_CARD":
       // add the BY card in the 0 index from the deck to the hand
-      const newSortedHand = [...state.hand, action.newBYcard].sort((a,b) => a.id-b.id)
+      const newSortedHand = [...state.hand, ...action.BYdeck.slice(0, action.numToDraw)].sort((a,b) => a.id-b.id)
 
       return Object.assign(
         {},
@@ -30,7 +30,10 @@ function PlayerReducer(state = initState, action){
 
     case "PLAY_BACKYARD_CARDS":
       // hand with the selected cards filtered out
-      const newHand = state.hand.filter(c => c.id !== action.cards[0].id && c.id !== action.cards[1].id)
+      const newHand = state.hand.slice()
+      newHand.splice(newHand.indexOf(action.cards[0]), 1);
+      newHand.splice(newHand.indexOf(action.cards[1]), 1);
+      debugger;
 
       return Object.assign({}, state, {
         backyard: [...state.backyard, ...action.cards].sort((a,b) => a.id-b.id),

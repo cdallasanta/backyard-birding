@@ -36,8 +36,8 @@ function DecksReducer(state = initState, action){
 			// remove the 0 indexed card, it is added to the flock in FlockReducer
       return Object.assign({}, state, {bird: state.bird.slice(1)})
 		case "DRAW_BACKYARD_CARD":
-				// remove the 0 indexed card, it is added to the hand in PlayerReducer
-				return Object.assign({}, state, {backyard: state.backyard.slice(1)})
+				// after drawing a card (which happens in the player reducer), reset the deck so as not to run out of cards
+				return Object.assign({}, state, {backyard: shuffle([...initBackyardDeck])})
 		case "RESET_GAME":
 			return initState;
     default:
