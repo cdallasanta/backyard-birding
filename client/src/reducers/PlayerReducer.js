@@ -33,7 +33,6 @@ function PlayerReducer(state = initState, action){
       const newHand = state.hand.slice()
       newHand.splice(newHand.indexOf(action.cards[0]), 1);
       newHand.splice(newHand.indexOf(action.cards[1]), 1);
-      debugger;
 
       return Object.assign({}, state, {
         backyard: [...state.backyard, ...action.cards].sort((a,b) => a.id-b.id),
