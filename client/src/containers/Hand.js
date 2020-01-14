@@ -12,10 +12,10 @@ class Hand extends React.Component {
 
   handleClick = (e, card) => {
     // unselect card if it is already selected
-    if(this.state.selectedCards.includes(card)) {
+    if(e.target.classList.contains("selected")) {
       e.target.classList.remove('selected');
       this.setState({
-        selectedCards: [...this.state.selectedCards.filter(c => c !== card)]
+        selectedCards: [...this.state.selectedCards.splice( this.state.selectedCards.indexOf(card), 1 )]
       })
     } else {
       // otherwise add it to selected cards

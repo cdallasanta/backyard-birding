@@ -46,8 +46,13 @@ class NewGame extends React.Component {
   render(){
     return(
       <div id="newGame">
-        <h1>Welcome to Backyard Birding!</h1>
+        <img src={process.env.PUBLIC_URL + "/Box_Art_Logo_Text.jpg"} alt="Backyard Birding Box Art"></img>
+        <div className="subtitle">
+          <h1>Welcome to Backyard Birding!</h1>
+          A single player adaptation of <a href="https://www.backyardbirdinggame.com/">Backyard Birding</a> by Jeff Morgenroth and Jeremy Schwartz
+        </div>
         <form onSubmit={this.handleSubmit}>
+          <h3>New Game:</h3>
           <div>
             Player Name: <input type="text" name="playerName" value={this.state.playerName} onChange={this.handleChange} />
           </div>
@@ -62,7 +67,7 @@ class NewGame extends React.Component {
           <input type="submit" value="Start Game" />
         </form>
         <div>
-          <a href="#" onClick={this.handleClick}>View High Scores</a>
+          <a href="/#" onClick={this.handleClick}>View High Scores</a>
         </div>
       </div>
     );
