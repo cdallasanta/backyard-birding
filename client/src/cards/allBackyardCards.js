@@ -11,10 +11,10 @@ const backyardCards = Object.getOwnPropertyNames(backyards).map((filename, i) =>
 
 export let initBackyardDeck;
 
-// fill the array with 5 copies of each card
-initBackyardDeck = new Array(50);
+// fill the array with 3 copies of each card
+initBackyardDeck = new Array(30);
 for(let i = 0; i < 10; i++){
-  initBackyardDeck.fill(backyardCards[i], i*5, (i+1)*5)
+  initBackyardDeck.fill(backyardCards[i], i*3, (i+1)*3)
 }
 
 // assign a unique id to each card
