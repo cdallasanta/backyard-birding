@@ -1,1 +1,1 @@
-//= link_tree ../../../client
+//= link_directory ../javascript .js
