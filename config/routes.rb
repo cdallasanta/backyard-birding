@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "static_pages#test"
+  root "static_pages#fallback_index_html"
   namespace :api do
     post 'games', to: 'games#create'
     get 'high_scores', to: 'games#high_scores'
