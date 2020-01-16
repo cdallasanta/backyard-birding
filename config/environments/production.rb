@@ -63,8 +63,7 @@ Rails.application.configure do
   # set secret key to env variable
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
 
-  
-  config.react.variant = :production
+  config.assets.compile = true
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
