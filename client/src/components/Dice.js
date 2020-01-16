@@ -10,27 +10,19 @@ import { selectBird } from '../actions/FlockActions';
 // https://github.com/AdamTyler/react-dice-complete/blob/master/src/Die.js
 
 class Dice extends React.Component {
-  state = {
-    loaded: false
-  }
-
   sleep = ms => {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   //this gets around the rollDone function running once it renders
   rollDone = async roll => {
-    if (!this.state.loaded){
-      this.setState({loaded: true});
-    } else {
-      if(this.props.phase === "attractBird"){
-        this.checkForSuccess(roll);
-      } else if (this.props.phase === "flightRoll") {
-        this.flightCheck(roll);
-        await this.sleep(1000);
-        this.props.toggleDice();
-        this.props.nextPhase();
-      }
+    if(this.props.phase === "attractBird"){
+      this.checkForSuccess(roll);
+    } else if (this.props.phase === "flightRoll") {
+      this.flightCheck(roll);
+      await this.sleep(1000);
+      this.props.toggleDice();
+      this.props.nextPhase();
     }
   }
 
